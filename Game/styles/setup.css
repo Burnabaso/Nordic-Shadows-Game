@@ -1,3 +1,4 @@
+
 .setup-hero{
     background-image: url('/game/assets/setup-page/hero-bg.svg');
     background-repeat: no-repeat;
@@ -26,13 +27,32 @@
     width: 60%;
     font-size: 2em;
 }
-.setup-button>button{
+.setup-button-container{
+    position: relative;
+}
+.setup-button-container>button{
     margin-top: 20px;
     padding: 10px 50px;
     color: white;
     background-image: url('/assets/setup-page/btn-bg.jpg');
     font-size: larger;
 }
-.setup-button>button:hover{
+.setup-button-container>button:hover{
     animation: button-hover 1s infinite ease;
+}
+.setup-hero input{
+    background-image: url('/assets/setup-page/btn-bg.jpg');
+    padding: 20px;
+    width: 20%;
+    text-align: center;
+    color: white;
+    font-weight: bold;
+    font-size: 1.5em;
+    font-family: 'norse';
+    letter-spacing: 5px;
+    border-radius: 10px;
+}
+.setup-button-container>button>a{
+    text-decoration: none;
+    color: white;
 }
