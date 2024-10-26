@@ -24,3 +24,18 @@ img{
     height: 100%;
     object-fit: cover;
 }
+button{
+    cursor: pointer;
+    position: relative;
+}
+button:hover{
+    animation: button-hover 1s infinite ease;
+}
+@keyframes button-hover {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
