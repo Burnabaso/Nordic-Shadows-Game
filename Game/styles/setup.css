@@ -5,7 +5,7 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: center;
+    padding-top: 200px;
     font-family: 'norse';
     height: 100vh;
 }
@@ -15,6 +15,8 @@
     flex-direction: column;
     align-items: center;
     gap: 1.5em;
+    margin: 10px 0;
+    
 }
 .setup-hero h1{
     font-size: 5em;
@@ -23,4 +25,14 @@
     text-align: center;
     width: 60%;
     font-size: 2em;
+}
+.setup-button>button{
+    margin-top: 20px;
+    padding: 10px 50px;
+    color: white;
+    background-image: url('/assets/setup-page/btn-bg.jpg');
+    font-size: larger;
+}
+.setup-button>button:hover{
+    animation: button-hover 1s infinite ease;
 }
