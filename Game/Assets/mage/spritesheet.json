@@ -241,7 +241,7 @@
 					}
 				},
 				{
-					"filename": "mage.png",
+					"filename": "idle.png",
 					"rotated": false,
 					"trimmed": false,
 					"sourceSize": {
