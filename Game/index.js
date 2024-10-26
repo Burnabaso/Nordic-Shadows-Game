@@ -18,7 +18,7 @@ var config = {
 };
 var player;
 var cursors;
-
+var animname;
 var game = new Phaser.Game(config);
 
 function preload()
@@ -29,25 +29,26 @@ function preload()
 }
 
 function create(){
-    player = this.physics.add.sprite(100, 450, 'knight');
+    animname = 'knight'
+    player = this.physics.add.sprite(100, 450, animname);
     player.setCollideWorldBounds(true);
     this.physics.gravity=0
     this.anims.create({
         key: 'walk',
         frames: [
-            { key: 'knight', frame: 'walk1.png' },
-            { key: 'knight', frame: 'walk2.png' },
-            { key: 'knight', frame: 'walk3.png' },
-            { key: 'knight', frame: 'walk4.png' },
-            { key: 'knight', frame: 'walk5.png' },
-            { key: 'knight', frame: 'walk6.png' }
+            { key: animname, frame: 'walk1.png' },
+            { key: animname, frame: 'walk2.png' },
+            { key: animname, frame: 'walk3.png' },
+            { key: animname, frame: 'walk4.png' },
+            { key: animname, frame: 'walk5.png' },
+            { key: animname, frame: 'walk6.png' }
         ],
         frameRate: 8,
         repeat: -1,
     });
     this.anims.create({
         key:'idle',
-        frames:[{key:'knight',frame:'Knight.png'}],
+        frames:[{key:animname,frame:'Knight.png'}],
         frameRate:8,
         repeat:-1,
     })
@@ -57,11 +58,11 @@ function update (){
     if (cursors.left.isDown) {
         player.setVelocityX(-160);
         player.setFlipX(true);
-        player.anims.play('walk', true); // Ensure this key matches the one defined above
+        player.anims.play('walk', true);
     } else if (cursors.right.isDown) {
         player.setVelocityX(160);
         player.setFlipX(false);
-        player.anims.play('walk', true); // Same here
+        player.anims.play('walk', true);
     }else if (cursors.up.isDown){
         player.setVelocityY(-160);
         player.anims.play('walk', true);
@@ -71,6 +72,6 @@ function update (){
     }  else {
         player.setVelocityX(0);
         player.setVelocityY(0);
-        player.anims.play('idle',true); // Ensure 'turn' animation key is also defined correctly
+        player.anims.play('idle',true);
     }
 }
