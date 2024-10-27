@@ -13,13 +13,13 @@
     <audio src="/assets/audio/setup-page.mp3" autoplay>
     </audio>
     <div class="setup-hero">
-        <div>
             <h1>Enter Thy Name</h1>
-            <input type="text" id="username" name="username" title="username">
-        </div>
-        <div class="setup-button-container">
-            <button id="setup-button-2">Next</button>
-        </div>
+            <form id="usernameForm" action="#">
+                <input type="text" id="username" name="username" placeholder="Username" required>
+                <div class="setup-button-container">
+                    <button id="setup-button-2" type="submit">Next</button>
+                </div>
+            </form>
     </div>
     <script src="/game/functionalities/setup-page.js"></script>
   </body>
