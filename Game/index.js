@@ -1,7 +1,7 @@
 var config = {
   type: Phaser.AUTO,
-  width: 800,
-  height: 600,
+  width: 700,
+  height: 700,
   physics: {
     default: "arcade",
     arcade: {
@@ -110,6 +110,11 @@ function createPlayer(scene) {
   this.player = this.physics.add.sprite(100, 450, animname);
   this.player.setCollideWorldBounds(true);
   this.player.health = 100;
+  this.player.setScale(0.5);
+  this.player.body.setOffset(
+    this.player.width/2,
+    this.player.height/2-25
+  )
 }
 function preloadAssets(scene) {
   this.load.atlas(
@@ -132,28 +137,32 @@ function preloadAssets(scene) {
     "../Game/Assets/dragon/dragon.png",
     "../Game/Assets/dragon/dragon.json"
   );
+  this.load.image('map',"../Game/Assets/map.jpg")
 }
 function updatePlayer(scene) {
   if (cursors.left.isDown) {
-    this.player.setVelocityX(-160);
+    this.player.setVelocityX(-100);
     this.player.setFlipX(true);
     this.player.anims.play("walk", true);
   } else if (cursors.right.isDown) {
-    this.player.setVelocityX(160);
+    this.player.setVelocityX(100);
     this.player.setFlipX(false);
     this.player.anims.play("walk", true);
-  } else if (cursors.up.isDown) {
-    this.player.setVelocityY(-160);
+  }else {
+    this.player.setVelocityX(0);
+  }
+ if (cursors.up.isDown) {
+    this.player.setVelocityY(-100);
     this.player.anims.play("walk", true);
   } else if (cursors.down.isDown) {
-    this.player.setVelocityY(160);
+    this.player.setVelocityY(100);
     this.player.anims.play("walk", true);
-  } else {
-    this.player.setVelocityX(0);
+  }else {
     this.player.setVelocityY(0);
-    this.player.anims.play("idle", true);
   }
-
+  if(this.player.body.velocity.x===0&&this.player.body.velocity.y===0){
+    this.player.anims.play("idle",true);
+  }
   if (this.player.x > 750) {
     this.scene.start("SecondLevel");
   }
