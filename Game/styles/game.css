@@ -1,0 +1,8 @@
+body{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 98vh; background-image: url('/game/Assets/setup-page/hero-bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+}
