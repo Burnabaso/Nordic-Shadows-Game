@@ -1,6 +1,6 @@
 const nextButton1 = document.getElementById("setup-button-1");
 const nextButton2 = document.getElementById("setup-button-2");
-
+const setupHero = document.getElementById("username-section");
 const vikingCharacter = document.getElementById("viking-character");
 const mageCharacter = document.getElementById("mage-character");
 const assassinCharacter = document.getElementById("assassin-character");
@@ -14,7 +14,12 @@ window.location.href = "http://localhost:5500/pages/player-setup/username.html";
 });
 nextButton2?.addEventListener("click", function () {
     if(userNameInput.value.trim()===""){
-        alert("You must name yourself");
+       setupHero.innerHTML+=`
+          <div id="alert"><h2>You must enter your name</h2></div>
+        `
+        setTimeout(() => {
+          window.location.reload();
+        }, 1000);
     }
     else{
         const userValue = userNameInput.value.trim();

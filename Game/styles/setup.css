@@ -111,3 +111,11 @@
     text-align: center;
     width: 100%;
 }
+#alert{
+    background-color: #FABC3F;
+    width: fit-content;
+    padding: 3em;
+    position: absolute;
+    top: 0;
+    border-radius: 10px;
+}
