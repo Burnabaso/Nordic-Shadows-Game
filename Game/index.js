@@ -1,7 +1,7 @@
 var config = {
   type: Phaser.AUTO,
-  width: 700,
-  height: 700,
+  width: 800,
+  height: 800,
   physics: {
     default: "arcade",
     arcade: {
@@ -11,8 +11,24 @@ var config = {
   },
   scene: [FirstLevel, SecondLevel, ThirdLevel],
 };
-var animname;
+var animname='rogue';
 var cursors;
+var playerspeed;
+var playerhealth;
+if(animname=='knight'){
+  playerspeed=80;
+  playerhealth=200;
+}else if(animname=='mage'){
+  playerspeed=120;
+  playerhealth=150;
+}else{
+  playerspeed=160;
+  playerhealth=100;
+}
+var total_score = 0;
+var firstlevelscore=0;
+var secondlevelscore=0;
+var thirdlevelscore=0;
 var game = new Phaser.Game(config);
 
 function createAnimations(scene, animname) {
@@ -107,9 +123,9 @@ function createAnimations(scene, animname) {
   });
 }
 function createPlayer(scene) {
-  this.player = this.physics.add.sprite(25, 350, animname);
+  this.player = this.physics.add.sprite(25, 400, animname);
   this.player.setCollideWorldBounds(true);
-  this.player.health = 100;
+  this.player.health = playerhealth;
   this.player.setScale(0.5);
   this.player.body.setSize(10,5);
   this.player.body.setOffset(
@@ -142,29 +158,29 @@ function preloadAssets(scene) {
 }
 function updatePlayer(scene) {
   if (cursors.left.isDown) {
-    this.player.setVelocityX(-100);
+    this.player.setVelocityX(-playerspeed);
     this.player.setFlipX(true);
     this.player.anims.play("walk", true);
   } else if (cursors.right.isDown) {
-    this.player.setVelocityX(100);
+    this.player.setVelocityX(playerspeed);
     this.player.setFlipX(false);
     this.player.anims.play("walk", true);
   }else {
     this.player.setVelocityX(0);
   }
  if (cursors.up.isDown) {
-    this.player.setVelocityY(-100);
+    this.player.setVelocityY(-playerspeed);
     this.player.anims.play("walk", true);
   } else if (cursors.down.isDown) {
-    this.player.setVelocityY(100);
+    this.player.setVelocityY(playerspeed);
     this.player.anims.play("walk", true);
   }else {
     this.player.setVelocityY(0);
   }
-  if(this.player.body.velocity.x===0&&this.player.body.velocity.y===0){
+  if(this.player.body.velocity.x===0 && this.player.body.velocity.y===0){
     this.player.anims.play("idle",true);
   }
-  if (this.player.x > 750) {
+  if (this.player.x > 750 && this.player.y<450 && this.player.y>350) {
     this.scene.start("SecondLevel");
   }
 }

@@ -8,7 +8,6 @@ class ThirdLevel extends Phaser.Scene {
     }
 
     create() {
-        animname = 'knight';
         createPlayer.call(this);
         createAnimations(this, animname);
         cursors = this.input.keyboard.createCursorKeys();

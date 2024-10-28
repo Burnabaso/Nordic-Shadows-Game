@@ -7,7 +7,6 @@ class SecondLevel extends Phaser.Scene {
     }
 
     create() {
-        animname = 'knight';
         createPlayer.call(this);
 
         cursors = this.input.keyboard.createCursorKeys();

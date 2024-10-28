@@ -9,9 +9,8 @@ class FirstLevel extends Phaser.Scene {
 
     create() {
         
-        let map=this.add.image(350, 350, 'map');
+        let map=this.add.image(400, 400, 'map');
         map.setScale(this.cameras.main.width / map.width);
-        animname = 'knight';
         createPlayer.call(this);
         createAnimations(this, animname);
         cursors = this.input.keyboard.createCursorKeys();
