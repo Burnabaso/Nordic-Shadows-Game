@@ -5,10 +5,12 @@ const vikingCharacter = document.getElementById("viking-character");
 const mageCharacter = document.getElementById("mage-character");
 const assassinCharacter = document.getElementById("assassin-character");
 var chosenCharacter;
-
+var bgSound = new Audio('/assets/audio/setup-page.mp3')
 const userNameInput = document.getElementById("username");
 var userName;
-
+document.addEventListener("DOMContentLoaded",function(){
+  bgSound.play();
+})
 nextButton1?.addEventListener("click", function () {
 window.location.href = "http://localhost:5500/pages/player-setup/username.html";
 });
