@@ -12,6 +12,7 @@ var config = {
   scene: [FirstLevel, SecondLevel, ThirdLevel],
 };
 var characterName=localStorage.getItem("chosenCharacter");
+var userName = localStorage.getItem("chosenUsername");
 // movement
 var cursors;
 var playerSpeed;
