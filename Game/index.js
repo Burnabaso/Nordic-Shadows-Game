@@ -107,10 +107,11 @@ function createAnimations(scene, animname) {
   });
 }
 function createPlayer(scene) {
-  this.player = this.physics.add.sprite(100, 450, animname);
+  this.player = this.physics.add.sprite(25, 350, animname);
   this.player.setCollideWorldBounds(true);
   this.player.health = 100;
   this.player.setScale(0.5);
+  this.player.body.setSize(10,5);
   this.player.body.setOffset(
     this.player.width/2,
     this.player.height/2-25
@@ -137,7 +138,7 @@ function preloadAssets(scene) {
     "../Game/Assets/dragon/dragon.png",
     "../Game/Assets/dragon/dragon.json"
   );
-  this.load.image('map',"../Game/Assets/map.jpg")
+  this.load.image('map',"../Game/Assets/map.jpg");
 }
 function updatePlayer(scene) {
   if (cursors.left.isDown) {
