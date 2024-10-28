@@ -1,0 +1,39 @@
+@font-face {
+    font-family: 'roman-uncial-modern' ;
+    src: url('/assets/fonts/roman-uncial-modern/RomanUncialModern.ttf');
+}
+@font-face {
+    font-family: "viking";
+    src: url('/assets/fonts/viking/Viking.ttf');
+}
+@font-face {
+    font-family: 'norse';
+    src: url('/assets/fonts/norse/Norse.otf');
+}
+*{
+    padding: 0;
+    margin: 0;
+    border: 0;
+    box-sizing: border-box;
+}
+input{
+    outline: 0;
+}
+img{
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+}
+button{
+    cursor: pointer;
+    position: relative;
+}
+
+@keyframes button-hover {
+    0%, 100% {
+        transform: translateY(0);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
