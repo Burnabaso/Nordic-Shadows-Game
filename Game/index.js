@@ -11,7 +11,7 @@ var config = {
   },
   scene: [FirstLevel, SecondLevel, ThirdLevel],
 };
-var animname='rogue';
+var animname=localStorage.getItem("chosenCharacter");
 var cursors;
 var playerspeed;
 var playerhealth;

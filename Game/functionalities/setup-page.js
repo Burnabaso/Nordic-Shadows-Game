@@ -31,7 +31,7 @@ nextButton2?.addEventListener("click", function () {
 });
 
 vikingCharacter?.addEventListener("click", function () {
-  chosenCharacter = "viking";
+  chosenCharacter = "knight";
   localStorage.setItem("chosenCharacter", chosenCharacter);
   window.location.href = "http://localhost:5500/pages/game.html";
 });
@@ -41,7 +41,7 @@ mageCharacter?.addEventListener("click", function () {
   window.location.href = "http://localhost:5500/pages/game.html";
 });
 assassinCharacter?.addEventListener("click", function () {
-  chosenCharacter = "assassin";
+  chosenCharacter = "rogue";
   localStorage.setItem("chosenCharacter", chosenCharacter);
   window.location.href = "http://localhost:5500/pages/game.html";
 });
