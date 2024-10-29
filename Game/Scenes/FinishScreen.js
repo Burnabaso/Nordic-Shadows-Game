@@ -19,7 +19,7 @@ class FinishScreen extends Phaser.Scene {
         
         cursors = this.input.keyboard.createCursorKeys();
         handleScore(this);
-        handleHealth(this);
+        handleHealth(this,true);
         updateScore();
     }
     
