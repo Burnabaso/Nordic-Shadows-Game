@@ -17,6 +17,7 @@ class FirstLevel extends Phaser.Scene {
         cursors = this.input.keyboard.createCursorKeys();
         handleCountdown(this);
         handleScore(this);
+        handleHealth(this)
         updateScore();
         
     }

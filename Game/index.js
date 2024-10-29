@@ -3,7 +3,6 @@ var userName = localStorage.getItem("chosenUsername");
 // movement
 var cursors;
 var playerSpeed;
-var playerHealth;
 // BonusTime in seconds
 var timeLeft = 120; 
 var timerText;
@@ -16,6 +15,9 @@ var currentLevel = 1;
 var totalScore = 0;
 var scoreText;
 
+// store health
+var playerHealth;
+var HealthText;
 
 window.onbeforeunload = function () {
   localStorage.removeItem("levelNumber")
