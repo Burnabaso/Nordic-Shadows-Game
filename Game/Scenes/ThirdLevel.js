@@ -8,9 +8,10 @@ class ThirdLevel extends Phaser.Scene {
     }
 
     create() {
-        dragons.length = 0;
-        let map=this.add.image(350, 350, 'map');
+        let map=this.add.image(350, 350, 'mapLevel3');
         map.setScale(this.cameras.main.width / map.width);
+
+        dragons.length = 0;
         createPlayer.call(this);
         //dragon creation
         dragons.push(new Dragon(this, 400, 400, [
@@ -19,9 +20,12 @@ class ThirdLevel extends Phaser.Scene {
         ], 120));
         
         cursors = this.input.keyboard.createCursorKeys();
-        console.log("Scene3");
+        handleCountdown(this);
+        handleScore(this);
+        handleHealth(this)
+        updateScore();
     }
-
+    
     update() {
         updatePlayer.call(this);
         for (const dragon of dragons) {
