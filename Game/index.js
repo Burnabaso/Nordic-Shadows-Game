@@ -1,19 +1,3 @@
-window.onbeforeunload = function () {
-  localStorage.removeItem("levelNumber")
-};
-var config = {
-  type: Phaser.AUTO,
-  width: 700,
-  height: 700,
-  physics: {
-    default: "arcade",
-    arcade: {
-      gravity: { y: 0 },
-      debug: false,
-    },
-  },
-  scene: [FirstLevel, SecondLevel, ThirdLevel],
-};
 var characterName=localStorage.getItem("chosenCharacter");
 var userName = localStorage.getItem("chosenUsername");
 // movement
@@ -28,6 +12,31 @@ var timeBonus;
 // starts at level 1
 var currentLevel = 1;
 
+// store score
+var totalScore = 0;
+var scoreText;
+
+
+window.onbeforeunload = function () {
+  localStorage.removeItem("levelNumber")
+};
+
+var config = {
+  type: Phaser.AUTO,
+  width: 700,
+  height: 700,
+  physics: {
+    default: "arcade",
+    arcade: {
+      gravity: { y: 0 },
+      debug: false,
+    },
+  },
+  scene: [FirstLevel, SecondLevel, ThirdLevel],
+};
+
+var game = new Phaser.Game(config);
+
 // each character has unique health and speed
 if(characterName=='knight'){
   playerSpeed=80;
@@ -39,13 +48,7 @@ if(characterName=='knight'){
   playerSpeed=160;
   playerHealth=100;
 }
-// store score
-var totalScore = 0;
-var firstLevelScore=0;
-var secondLevelScore=0;
-var thirdLevelScore=0;
 
-var game = new Phaser.Game(config);
 
 function createPlayer() {
   playerName = this.add.text(100, 100, `${userName}`, {
@@ -67,47 +70,8 @@ function createPlayer() {
    )
 }
 
-function updatePlayer() {
-  playerName.x=this.player.body.x +5 - playerName.width/2;
-  playerName.y=this.player.body.y-40;
-  if (cursors.left.isDown) {
-    this.player.setVelocityX(-playerSpeed);
-    this.player.setFlipX(true);
-    this.player.anims.play("walk", true);
-  } else if (cursors.right.isDown) {
-    this.player.setVelocityX(playerSpeed);
-    this.player.setFlipX(false);
-    this.player.anims.play("walk", true);
-  }else {
-    this.player.setVelocityX(0);
-  }
- if (cursors.up.isDown) {
-    this.player.setVelocityY(-playerSpeed);
-    this.player.anims.play("walk", true);
-  } else if (cursors.down.isDown) {
-    this.player.setVelocityY(playerSpeed);
-    this.player.anims.play("walk", true);
-  }else {
-    this.player.setVelocityY(0);
-  }
-  if(this.player.body.velocity.x===0 && this.player.body.velocity.y===0){
-    this.player.anims.play("idle",true);
-  }
-  if (this.player.x >670 && this.player.y<400 && this.player.y>325) {
-    currentLevel++;
-    if (currentLevel==2){
-      this.scene.start("SecondLevel");
-    }
-    else if (currentLevel==3){
-      this.scene.start("ThirdLevel");
-    }
-    // finished
-    else if (currentLevel==4){
-      localStorage.setItem("levelNumber","4")
-    }
-  }
-}
 
+// called in preload function of each level
 function preloadAssets() {
   // define key and source of values
   this.load.atlas(
@@ -131,9 +95,12 @@ function preloadAssets() {
     "../Game/Assets/dragon/dragon.json"
   );
   // for now fake maze
-  this.load.image('map',"../Game/Assets/map.jpg");
+  this.load.image('mapLevel1',"../Game/Assets/maps/level1.jpg");
+  this.load.image('mapLevel2',"../Game/Assets/maps/level2.jpg");
+  this.load.image('mapLevel3',"../Game/Assets/maps/level3.jpg");
 }
 
+// called in create function in each level
 function createAnimations(scene, characterName) {
   scene.anims.create({
     key: "idle",
@@ -224,4 +191,49 @@ function createAnimations(scene, characterName) {
     frameRate: 8,
     repeat: 1,
   });
+}
+// call in update function in each level
+function updatePlayer() {
+  playerName.x=this.player.body.x +5 - playerName.width/2;
+  playerName.y=this.player.body.y-40;
+  if (cursors.left.isDown) {
+    this.player.setVelocityX(-playerSpeed);
+    this.player.setFlipX(true);
+    this.player.anims.play("walk", true);
+  } else if (cursors.right.isDown) {
+    this.player.setVelocityX(playerSpeed);
+    this.player.setFlipX(false);
+    this.player.anims.play("walk", true);
+  }else {
+    this.player.setVelocityX(0);
+  }
+ if (cursors.up.isDown) {
+    this.player.setVelocityY(-playerSpeed);
+    this.player.anims.play("walk", true);
+  } else if (cursors.down.isDown) {
+    this.player.setVelocityY(playerSpeed);
+    this.player.anims.play("walk", true);
+  }else {
+    this.player.setVelocityY(0);
+  }
+  if(this.player.body.velocity.x===0 && this.player.body.velocity.y===0){
+    this.player.anims.play("idle",true);
+  }
+  if (this.player.x >670 && this.player.y<400 && this.player.y>325) {
+    currentLevel++;
+    if (currentLevel==2){
+      this.scene.start("SecondLevel");
+      localStorage.setItem("levelNumber","2")
+    }
+    else if (currentLevel==3){
+      this.scene.start("ThirdLevel");
+      localStorage.setItem("levelNumber","3")
+
+    }
+    // finished
+    else if (currentLevel==4){
+      localStorage.setItem("levelNumber","4")
+      updateScore()
+    }
+  }
 }
