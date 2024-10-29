@@ -1,0 +1,14 @@
+*{
+    font-family: 'norse';
+}
+.footer-section{
+    display: flex;
+    background-image: url("../Assets/setup-page/btn-bg.jpg");
+    height: 33vh;
+    width: 100%;
+    justify-content: space-between;
+    padding: 10px 30px;
+}
+.contact-us{
+    border-radius: 24px;
+}
