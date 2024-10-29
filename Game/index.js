@@ -1,42 +1,80 @@
 class Dragon {
   constructor(scene, spawnX, spawnY, waypoints, speed) {
-      this.scene = scene;
-      this.dragon = this.scene.physics.add.sprite(spawnX, spawnY, "dragon");
-      this.dragon.setScale(0.4);
-      this.waypoints = waypoints;
-      this.currentWaypointIndex = 0;
-      this.speed = speed;
+    this.scene = scene;
+    this.dragon = this.scene.physics.add.sprite(spawnX, spawnY, "dragon");
+    this.dragon.setScale(0.4);
+    this.waypoints = waypoints;
+    this.currentWaypointIndex = 0;
+    this.speed = speed;
+    this.isAttacking = false;
   }
 
   update(player) {
-      const currentWaypoint = this.waypoints[this.currentWaypointIndex];
-      const distance = Phaser.Math.Distance.Between(
-          this.dragon.x,
-          this.dragon.y,
-          currentWaypoint.x,
-          currentWaypoint.y
-      );
+    const currentWaypoint = this.waypoints[this.currentWaypointIndex];
+    const distance = Phaser.Math.Distance.Between(
+      this.dragon.x,
+      this.dragon.y,
+      currentWaypoint.x,
+      currentWaypoint.y
+    );
 
-      
+    const playerDistance = Phaser.Math.Distance.Between(
+      this.dragon.x,
+      this.dragon.y,
+      player.x,
+      player.y
+    );
+    const isFacingPlayer =
+      (this.dragon.body.velocity.x < 0 && player.x < this.dragon.x) ||
+      (this.dragon.body.velocity.x > 0 && player.x > this.dragon.x);
+    if (!this.isAttacking && playerDistance < 50 && isFacingPlayer) {
+      this.attack(player);
+      return;
+    }
+    if (!this.isAttacking) {
       if (distance > 5) {
-          const directionX = currentWaypoint.x - this.dragon.x;
-          const directionY = currentWaypoint.y - this.dragon.y;
-          const angle = Math.atan2(directionY, directionX);
-          this.dragon.setVelocityX(Math.cos(angle) * this.speed);
-          this.dragon.setVelocityY(Math.sin(angle) * this.speed);
+        const directionX = currentWaypoint.x - this.dragon.x;
+        const directionY = currentWaypoint.y - this.dragon.y;
+        const angle = Math.atan2(directionY, directionX);
+        this.dragon.setVelocityX(Math.cos(angle) * this.speed);
+        this.dragon.setVelocityY(Math.sin(angle) * this.speed);
       } else {
-          this.dragon.setVelocity(0);
-          this.currentWaypointIndex =
-              (this.currentWaypointIndex + 1) % this.waypoints.length;
+        this.dragon.setVelocity(0);
+        this.currentWaypointIndex =
+          (this.currentWaypointIndex + 1) % this.waypoints.length;
       }
-      if(this.dragon.body.velocity.x!=0 || this.dragon.body.velocity.y!=0){
-        this.dragon.anims.play("dragon_run",true);
+      if (
+        this.dragon.body.velocity.x != 0 ||
+        this.dragon.body.velocity.y != 0
+      ) {
+        this.dragon.anims.play("dragon_run", true);
       }
-      if(this.dragon.body.velocity.x<0){
+      if (this.dragon.body.velocity.x < 0) {
         this.dragon.setFlipX(true);
-      }else{
+      } else {
         this.dragon.setFlipX(false);
       }
+    }
+  }
+  attack(player) {
+    this.isAttacking = true;
+    this.dragon.setVelocity(0);
+    this.dragon.anims.play("dragon_attack", true);
+    attacked = true;
+    player.setVelocity(0, 0);
+    player.anims.play("hurt", true);
+    playerHealth = playerHealth - 25;
+    this.scene.time.delayedCall(500, () => {
+      attacked = false;
+    });
+    console.log(playerHealth);
+    this.scene.time.delayedCall(900, () => {
+      this.isAttacking = false;
+      this.dragon.anims.play("dragon_run", true);
+      this.currentWaypointIndex =
+        (this.currentWaypointIndex - 1 + this.waypoints.length) %
+        this.waypoints.length;
+    });
   }
 }
 
@@ -55,10 +93,12 @@ var config = {
 };
 var characterName = localStorage.getItem("chosenCharacter");
 var userName = localStorage.getItem("chosenUsername");
+var playerHealth;
+var attacked = false;
 // movement
 var cursors;
 var playerSpeed;
-var playerHealth;
+
 // each character has unique health and speed
 if (characterName == "knight") {
   playerSpeed = 80;
@@ -101,31 +141,36 @@ function createPlayer() {
 function updatePlayer() {
   playername.x = this.player.body.x + 5 - playername.width / 2;
   playername.y = this.player.body.y - 40;
-  if (cursors.left.isDown) {
-    this.player.setVelocityX(-playerSpeed);
-    this.player.setFlipX(true);
-    this.player.anims.play("walk", true);
-  } else if (cursors.right.isDown) {
-    this.player.setVelocityX(playerSpeed);
-    this.player.setFlipX(false);
-    this.player.anims.play("walk", true);
-  } else {
-    this.player.setVelocityX(0);
-  }
-  if (cursors.up.isDown) {
-    this.player.setVelocityY(-playerSpeed);
-    this.player.anims.play("walk", true);
-  } else if (cursors.down.isDown) {
-    this.player.setVelocityY(playerSpeed);
-    this.player.anims.play("walk", true);
-  } else {
-    this.player.setVelocityY(0);
-  }
-  if (this.player.body.velocity.x === 0 && this.player.body.velocity.y === 0) {
-    this.player.anims.play("idle", true);
-  }
-  if (this.player.x > 670 && this.player.y < 400 && this.player.y > 325) {
-    this.scene.start("SecondLevel");
+  if (!attacked) {
+    if (cursors.left.isDown) {
+      this.player.setVelocityX(-playerSpeed);
+      this.player.setFlipX(true);
+      this.player.anims.play("walk", true);
+    } else if (cursors.right.isDown) {
+      this.player.setVelocityX(playerSpeed);
+      this.player.setFlipX(false);
+      this.player.anims.play("walk", true);
+    } else {
+      this.player.setVelocityX(0);
+    }
+    if (cursors.up.isDown) {
+      this.player.setVelocityY(-playerSpeed);
+      this.player.anims.play("walk", true);
+    } else if (cursors.down.isDown) {
+      this.player.setVelocityY(playerSpeed);
+      this.player.anims.play("walk", true);
+    } else {
+      this.player.setVelocityY(0);
+    }
+    if (
+      this.player.body.velocity.x === 0 &&
+      this.player.body.velocity.y === 0
+    ) {
+      this.player.anims.play("idle", true);
+    }
+    if (this.player.x > 670 && this.player.y < 400 && this.player.y > 325) {
+      this.scene.start("SecondLevel");
+    }
   }
 }
 
@@ -241,10 +286,10 @@ function createAnimations(scene, characterName) {
       { key: "dragon", frame: "dragon_knight_attack_2.png" },
       { key: "dragon", frame: "dragon_knight_attack_3.png" },
       { key: "dragon", frame: "dragon_knight_attack_4.png" },
+      { key: "dragon", frame: "dragon_knight_attack_5.png" },
+      { key: "dragon", frame: "dragon_knight_attack_6.png" },
     ],
-    frameRate: 5,
+    frameRate: 6,
     repeat: 0,
   });
 }
-
-

@@ -23,7 +23,7 @@ class FirstLevel extends Phaser.Scene {
     update() {
         updatePlayer.call(this);
         for (const dragon of dragons) {
-            dragon.update();
+            dragon.update(this.player);
         }
     }
 }
