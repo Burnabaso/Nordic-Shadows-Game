@@ -18,19 +18,20 @@ class Dragon {
       currentWaypoint.y
     );
 
-    const playerDistance = Phaser.Math.Distance.Between(
-      this.dragon.x,
-      this.dragon.y,
-      player.x,
-      player.y
-    );
-    const isFacingPlayer =
-      (this.dragon.body.velocity.x < 0 && player.x < this.dragon.x) ||
-      (this.dragon.body.velocity.x > 0 && player.x > this.dragon.x);
-    if (!this.isAttacking && playerDistance < 50 && isFacingPlayer) {
+    //attack logic
+    const playerDistanceX = Math.abs(this.dragon.x - player.x);
+    const playerDistanceY = Math.abs(this.dragon.y - player.y);
+    const isFacingPlayer = 
+    (this.dragon.body.velocity.x < 0 && player.x < this.dragon.x) ||
+    (this.dragon.body.velocity.x > 0 && player.x > this.dragon.x) ||
+    (this.dragon.body.velocity.y < 0 && player.y < this.dragon.y) ||
+    (this.dragon.body.velocity.y > 0 && player.y > this.dragon.y);
+    if (!this.isAttacking && playerDistanceY < 50 &&playerDistanceX < 50&&  isFacingPlayer ) {
       this.attack(player);
       return;
     }
+
+    //movement logic
     if (!this.isAttacking) {
       if (distance > 5) {
         const directionX = currentWaypoint.x - this.dragon.x;
@@ -57,17 +58,10 @@ class Dragon {
     }
   }
   attack(player) {
+    //dragon logic
     this.isAttacking = true;
     this.dragon.setVelocity(0);
     this.dragon.anims.play("dragon_attack", true);
-    attacked = true;
-    player.setVelocity(0, 0);
-    player.anims.play("hurt", true);
-    playerHealth = playerHealth - 25;
-    this.scene.time.delayedCall(500, () => {
-      attacked = false;
-    });
-    console.log(playerHealth);
     this.scene.time.delayedCall(900, () => {
       this.isAttacking = false;
       this.dragon.anims.play("dragon_run", true);
@@ -75,9 +69,19 @@ class Dragon {
         (this.currentWaypointIndex - 1 + this.waypoints.length) %
         this.waypoints.length;
     });
+//player logic
+    attacked = true;
+    player.setVelocity(0, 0);
+    player.anims.play("hurt", true);
+    playerHealth = playerHealth - 25;
+    this.scene.time.delayedCall(500, () => {
+      attacked = false;
+    });
+
+
   }
 }
-
+//game config
 var config = {
   type: Phaser.AUTO,
   width: 700,
@@ -91,15 +95,23 @@ var config = {
   },
   scene: [FirstLevel, SecondLevel, ThirdLevel],
 };
-var characterName = localStorage.getItem("chosenCharacter");
+
+const dragons = [];
+var cursors;
+
+//player info
 var userName = localStorage.getItem("chosenUsername");
 var playerHealth;
 var attacked = false;
-// movement
-var cursors;
 var playerSpeed;
 
-// each character has unique health and speed
+// store score
+var total_score = 0;
+var firstLevelScore = 0;
+var secondLevelScore = 0;
+var thirdLevelScore = 0;
+//character selection
+var characterName = localStorage.getItem("chosenCharacter");
 if (characterName == "knight") {
   playerSpeed = 80;
   playerHealth = 200;
@@ -110,12 +122,7 @@ if (characterName == "knight") {
   playerSpeed = 160;
   playerHealth = 100;
 }
-// store score
-var total_score = 0;
-var firstLevelScore = 0;
-var secondLevelScore = 0;
-var thirdLevelScore = 0;
-const dragons = [];
+
 var game = new Phaser.Game(config);
 
 function createPlayer() {
