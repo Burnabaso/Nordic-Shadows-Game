@@ -36,6 +36,84 @@ var thirdLevelScore=0;
 
 var game = new Phaser.Game(config);
 
+
+function createPlayer(scene) {
+  playername = this.add.text(100, 100, `${userName}`, {
+    fontSize: "16px",
+    color: "#ffffff",   // White color
+    fontFamily: "norse",
+    backgroundColor:'rgba(0,0,0,0.5)',
+});
+  // initiate physics for physics
+  this.player = this.physics.add.sprite(25, 350, characterName);
+  this.player.setCollideWorldBounds(true);
+  this.player.health = playerHealth;
+  this.player.setScale(0.5);
+  // the size in phaser for collision
+  this.player.body.setSize(15,5);
+  this.player.body.setOffset(
+     this.player.width/2-10,
+     this.player.height/2+15
+   )
+}
+
+function updatePlayer(scene) {
+  playername.x=this.player.body.x +5 - playername.width/2;
+  playername.y=this.player.body.y-40;
+  if (cursors.left.isDown) {
+    this.player.setVelocityX(-playerSpeed);
+    this.player.setFlipX(true);
+    this.player.anims.play("walk", true);
+  } else if (cursors.right.isDown) {
+    this.player.setVelocityX(playerSpeed);
+    this.player.setFlipX(false);
+    this.player.anims.play("walk", true);
+  }else {
+    this.player.setVelocityX(0);
+  }
+ if (cursors.up.isDown) {
+    this.player.setVelocityY(-playerSpeed);
+    this.player.anims.play("walk", true);
+  } else if (cursors.down.isDown) {
+    this.player.setVelocityY(playerSpeed);
+    this.player.anims.play("walk", true);
+  }else {
+    this.player.setVelocityY(0);
+  }
+  if(this.player.body.velocity.x===0 && this.player.body.velocity.y===0){
+    this.player.anims.play("idle",true);
+  }
+  if (this.player.x >670 && this.player.y<400 && this.player.y>325) {
+    this.scene.start("SecondLevel");
+  }
+}
+
+function preloadAssets(scene) {
+  // define key and source of values
+  this.load.atlas(
+    "knight",
+    "../Game/Assets/knight/spritesheet.png",
+    "../Game/Assets/knight/spritesheet.json"
+  );
+  this.load.atlas(
+    "mage",
+    "../Game/Assets/mage/spritesheet.png",
+    "../Game/Assets/mage/spritesheet.json"
+  );
+  this.load.atlas(
+    "rogue",
+    "../Game/Assets/rogue/spritesheet.png",
+    "../Game/Assets/rogue/spritesheet.json"
+  );
+  this.load.atlas(
+    "dragon",
+    "../Game/Assets/dragon/dragon.png",
+    "../Game/Assets/dragon/dragon.json"
+  );
+  // for now fake maze
+  this.load.image('map',"../Game/Assets/map.jpg");
+}
+
 function createAnimations(scene, characterName) {
   scene.anims.create({
     key: "idle",
@@ -126,70 +204,4 @@ function createAnimations(scene, characterName) {
     frameRate: 8,
     repeat: 1,
   });
-}
-function createPlayer(scene) {
-  // initiate physics for physics
-  this.player = this.physics.add.sprite(25, 350, characterName);
-  this.player.setCollideWorldBounds(true);
-  this.player.health = playerHealth;
-  this.player.setScale(0.5);
-  // the size in phaser for collision
-  this.player.body.setSize(30,26);
-  // this.player.body.setOffset(
-  //   this.player.width/2,
-  //   this.player.height/2-5
-  // )
-}
-function preloadAssets(scene) {
-  // define key and source of values
-  this.load.atlas(
-    "knight",
-    "../Game/Assets/knight/spritesheet.png",
-    "../Game/Assets/knight/spritesheet.json"
-  );
-  this.load.atlas(
-    "mage",
-    "../Game/Assets/mage/spritesheet.png",
-    "../Game/Assets/mage/spritesheet.json"
-  );
-  this.load.atlas(
-    "rogue",
-    "../Game/Assets/rogue/spritesheet.png",
-    "../Game/Assets/rogue/spritesheet.json"
-  );
-  this.load.atlas(
-    "dragon",
-    "../Game/Assets/dragon/dragon.png",
-    "../Game/Assets/dragon/dragon.json"
-  );
-  // for now fake maze
-  this.load.image('map',"../Game/Assets/map.jpg");
-}
-function updatePlayer(scene) {
-  if (cursors.left.isDown) {
-    this.player.setVelocityX(-playerSpeed);
-    this.player.setFlipX(true);
-    this.player.anims.play("walk", true);
-  } else if (cursors.right.isDown) {
-    this.player.setVelocityX(playerSpeed);
-    this.player.setFlipX(false);
-    this.player.anims.play("walk", true);
-  }else {
-    this.player.setVelocityX(0);
-  }
- if (cursors.up.isDown) {
-    this.player.setVelocityY(-playerSpeed);
-    this.player.anims.play("walk", true);
-  } else if (cursors.down.isDown) {
-    this.player.setVelocityY(playerSpeed);
-    this.player.anims.play("walk", true);
-  }else {
-    this.player.setVelocityY(0);
-  }
-  if(this.player.body.velocity.x===0 && this.player.body.velocity.y===0){
-    this.player.anims.play("idle",true);
-  }
-  if (this.player.x >670 && this.player.y<400 && this.player.y>325) {
-    this.scene.start("SecondLevel");
-  }
 }
