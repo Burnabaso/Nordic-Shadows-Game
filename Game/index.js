@@ -1,4 +1,6 @@
-
+window.onbeforeunload = function () {
+  localStorage.removeItem("levelNumber")
+};
 var config = {
   type: Phaser.AUTO,
   width: 700,
@@ -19,7 +21,7 @@ var cursors;
 var playerSpeed;
 var playerHealth;
 // BonusTime in seconds
-var timeLeft = 200; 
+var timeLeft = 120; 
 var timerText;
 var timeBonus;
 
