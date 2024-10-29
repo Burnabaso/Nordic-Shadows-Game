@@ -1,3 +1,45 @@
+class Dragon {
+  constructor(scene, spawnX, spawnY, waypoints, speed) {
+      this.scene = scene;
+      this.dragon = this.scene.physics.add.sprite(spawnX, spawnY, "dragon");
+      this.dragon.setScale(0.4);
+      this.waypoints = waypoints;
+      this.currentWaypointIndex = 0;
+      this.speed = speed;
+  }
+
+  update(player) {
+      const currentWaypoint = this.waypoints[this.currentWaypointIndex];
+      const distance = Phaser.Math.Distance.Between(
+          this.dragon.x,
+          this.dragon.y,
+          currentWaypoint.x,
+          currentWaypoint.y
+      );
+
+      
+      if (distance > 5) {
+          const directionX = currentWaypoint.x - this.dragon.x;
+          const directionY = currentWaypoint.y - this.dragon.y;
+          const angle = Math.atan2(directionY, directionX);
+          this.dragon.setVelocityX(Math.cos(angle) * this.speed);
+          this.dragon.setVelocityY(Math.sin(angle) * this.speed);
+      } else {
+          this.dragon.setVelocity(0);
+          this.currentWaypointIndex =
+              (this.currentWaypointIndex + 1) % this.waypoints.length;
+      }
+      if(this.dragon.body.velocity.x!=0 || this.dragon.body.velocity.y!=0){
+        this.dragon.anims.play("dragon_run",true);
+      }
+      if(this.dragon.body.velocity.x<0){
+        this.dragon.setFlipX(true);
+      }else{
+        this.dragon.setFlipX(false);
+      }
+  }
+}
+
 var config = {
   type: Phaser.AUTO,
   width: 700,
@@ -11,55 +53,54 @@ var config = {
   },
   scene: [FirstLevel, SecondLevel, ThirdLevel],
 };
-var characterName=localStorage.getItem("chosenCharacter");
+var characterName = localStorage.getItem("chosenCharacter");
 var userName = localStorage.getItem("chosenUsername");
 // movement
 var cursors;
 var playerSpeed;
 var playerHealth;
 // each character has unique health and speed
-if(characterName=='knight'){
-  playerSpeed=80;
-  playerHealth=200;
-}else if(characterName=='mage'){
-  playerSpeed=120;
-  playerHealth=150;
-}else{
-  playerSpeed=160;
-  playerHealth=100;
+if (characterName == "knight") {
+  playerSpeed = 80;
+  playerHealth = 200;
+} else if (characterName == "mage") {
+  playerSpeed = 120;
+  playerHealth = 150;
+} else {
+  playerSpeed = 160;
+  playerHealth = 100;
 }
 // store score
 var total_score = 0;
-var firstLevelScore=0;
-var secondLevelScore=0;
-var thirdLevelScore=0;
-
+var firstLevelScore = 0;
+var secondLevelScore = 0;
+var thirdLevelScore = 0;
+const dragons = [];
 var game = new Phaser.Game(config);
-
 
 function createPlayer() {
   playername = this.add.text(100, 100, `${userName}`, {
     fontSize: "16px",
-    color: "#ffffff",   // White color
+    color: "#ffffff", // White color
     fontFamily: "norse",
-    backgroundColor:'rgba(0,0,0,0.5)',
-});
+    backgroundColor: "rgba(0,0,0,0.5)",
+  });
   // initiate physics for physics
   this.player = this.physics.add.sprite(25, 350, characterName);
   this.player.setCollideWorldBounds(true);
   this.player.health = playerHealth;
   this.player.setScale(0.5);
   // the size in phaser for collision
-  this.player.body.setSize(15,5);
+  this.player.body.setSize(15, 5);
   this.player.body.setOffset(
-     this.player.width/2-10,
-     this.player.height/2+15
-   )
+    this.player.width / 2 - 10,
+    this.player.height / 2 + 15
+  );
 }
 
 function updatePlayer() {
-  playername.x=this.player.body.x +5 - playername.width/2;
-  playername.y=this.player.body.y-40;
+  playername.x = this.player.body.x + 5 - playername.width / 2;
+  playername.y = this.player.body.y - 40;
   if (cursors.left.isDown) {
     this.player.setVelocityX(-playerSpeed);
     this.player.setFlipX(true);
@@ -68,22 +109,22 @@ function updatePlayer() {
     this.player.setVelocityX(playerSpeed);
     this.player.setFlipX(false);
     this.player.anims.play("walk", true);
-  }else {
+  } else {
     this.player.setVelocityX(0);
   }
- if (cursors.up.isDown) {
+  if (cursors.up.isDown) {
     this.player.setVelocityY(-playerSpeed);
     this.player.anims.play("walk", true);
   } else if (cursors.down.isDown) {
     this.player.setVelocityY(playerSpeed);
     this.player.anims.play("walk", true);
-  }else {
+  } else {
     this.player.setVelocityY(0);
   }
-  if(this.player.body.velocity.x===0 && this.player.body.velocity.y===0){
-    this.player.anims.play("idle",true);
+  if (this.player.body.velocity.x === 0 && this.player.body.velocity.y === 0) {
+    this.player.anims.play("idle", true);
   }
-  if (this.player.x >670 && this.player.y<400 && this.player.y>325) {
+  if (this.player.x > 670 && this.player.y < 400 && this.player.y > 325) {
     this.scene.start("SecondLevel");
   }
 }
@@ -111,7 +152,7 @@ function preloadAssets() {
     "../Game/Assets/dragon/dragon.json"
   );
   // for now fake maze
-  this.load.image('map',"../Game/Assets/map.jpg");
+  this.load.image("map", "../Game/Assets/map.jpg");
 }
 
 function createAnimations(scene, characterName) {
@@ -201,7 +242,9 @@ function createAnimations(scene, characterName) {
       { key: "dragon", frame: "dragon_knight_attack_3.png" },
       { key: "dragon", frame: "dragon_knight_attack_4.png" },
     ],
-    frameRate: 8,
+    frameRate: 4,
     repeat: 1,
   });
 }
+
+
