@@ -29,7 +29,7 @@ if(characterName=='knight'){
   playerHealth=100;
 }
 // store score
-var total_score = 0;
+var totalScore = 0;
 var firstLevelScore=0;
 var secondLevelScore=0;
 var thirdLevelScore=0;
@@ -38,7 +38,7 @@ var game = new Phaser.Game(config);
 
 
 function createPlayer() {
-  playername = this.add.text(100, 100, `${userName}`, {
+  playerName = this.add.text(100, 100, `${userName}`, {
     fontSize: "16px",
     color: "#ffffff",   // White color
     fontFamily: "norse",
@@ -58,8 +58,8 @@ function createPlayer() {
 }
 
 function updatePlayer() {
-  playername.x=this.player.body.x +5 - playername.width/2;
-  playername.y=this.player.body.y-40;
+  playerName.x=this.player.body.x +5 - playerName.width/2;
+  playerName.y=this.player.body.y-40;
   if (cursors.left.isDown) {
     this.player.setVelocityX(-playerSpeed);
     this.player.setFlipX(true);
