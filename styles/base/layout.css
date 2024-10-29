@@ -10,11 +10,17 @@
     font-family: 'norse';
     src: url('/assets/fonts/norse/Norse.otf');
 }
+@font-face {
+    font-family: 'norse';
+    src: url('/assets/fonts/norse/Norse-Bold.otf');
+    font-weight: bold;
+}
 *{
     padding: 0;
     margin: 0;
     border: 0;
     box-sizing: border-box;
+    font-family: "norse";
 }
 input{
     outline: 0;
