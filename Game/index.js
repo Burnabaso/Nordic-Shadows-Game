@@ -1,3 +1,4 @@
+
 var config = {
   type: Phaser.AUTO,
   width: 700,
@@ -17,6 +18,9 @@ var userName = localStorage.getItem("chosenUsername");
 var cursors;
 var playerSpeed;
 var playerHealth;
+// BonusTime in seconds
+let timeLeft = 200; 
+let timerText;
 // each character has unique health and speed
 if(characterName=='knight'){
   playerSpeed=80;
@@ -35,7 +39,6 @@ var secondLevelScore=0;
 var thirdLevelScore=0;
 
 var game = new Phaser.Game(config);
-
 
 function createPlayer() {
   playerName = this.add.text(100, 100, `${userName}`, {
