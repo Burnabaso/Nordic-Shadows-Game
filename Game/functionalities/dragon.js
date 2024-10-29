@@ -21,15 +21,16 @@ class Dragon {
       //attack logic
       const playerDistanceX = Math.abs(this.dragon.x - player.x);
       const playerDistanceY = Math.abs(this.dragon.y - player.y);
-      const isFacingPlayer = 
+      const isFacingPlayerX = 
       (this.dragon.body.velocity.x < 0 && player.x < this.dragon.x) ||
-      (this.dragon.body.velocity.x > 0 && player.x > this.dragon.x) ||
+      (this.dragon.body.velocity.x > 0 && player.x > this.dragon.x);
+      const isFacingPlayerY=   
       (this.dragon.body.velocity.y < 0 && player.y < this.dragon.y) ||
       (this.dragon.body.velocity.y > 0 && player.y > this.dragon.y);
-      if (!this.isAttacking && playerDistanceY < 50 &&playerDistanceX < 50&&  isFacingPlayer ) {
-        this.attack(player);
-        return;
-      }
+    if (!this.isAttacking && (playerDistanceY < 50 && playerDistanceX < 20 &&  isFacingPlayerY) || (playerDistanceX < 50 && playerDistanceY < 20 &&  isFacingPlayerX)) {
+      this.attack(player);
+      return;
+    }
   
       //movement logic
       if (!this.isAttacking) {

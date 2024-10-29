@@ -1,4 +1,3 @@
-const replayButton = document.getElementById("replay-button");
 class FinishScreen extends Phaser.Scene {
     constructor() {
         super({ key: 'FinishScreen' });
@@ -22,7 +21,6 @@ class FinishScreen extends Phaser.Scene {
         handleScore(this);
         handleHealth(this,true);
         updateScore();
-        replayButton.classList.toggle("hidden")
     }
     
     update() {
