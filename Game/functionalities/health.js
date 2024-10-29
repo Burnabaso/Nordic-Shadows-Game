@@ -8,3 +8,10 @@ function handleHealth(scene) {
 }
 
      
+function updateHealth(){
+    if(attacked){
+            playerHealth = playerHealth - 25;
+    }
+    HealthText.setText(`Health:  ${playerHealth}`);
+
+}
