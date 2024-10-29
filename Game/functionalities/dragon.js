@@ -75,6 +75,7 @@ class Dragon {
       player.anims.play("hurt", true);
       this.scene.time.delayedCall(500, () => {
         attacked = false;
+        decreaseHealth=true;
       });
   
   

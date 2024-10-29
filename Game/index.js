@@ -19,6 +19,8 @@ var scoreText;
 var playerHealth;
 var HealthText;
 
+var decreaseHealth;
+
 // clear stored level number on page reload
 window.onbeforeunload = function () {
   localStorage.removeItem("levelNumber")
@@ -130,6 +132,7 @@ function updatePlayer() {
 
     }
     }
+    decreaseHealth=false;
   }
 }
 
