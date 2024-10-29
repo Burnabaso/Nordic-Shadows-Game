@@ -13,8 +13,11 @@ class FirstLevel extends Phaser.Scene {
         map.setScale(this.cameras.main.width / map.width);
         createPlayer.call(this);
         createAnimations(this, characterName);
+        
         cursors = this.input.keyboard.createCursorKeys();
+        handleCountdown(this);
         console.log("Scene1");
+
     }
 
     update() {
