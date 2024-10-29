@@ -194,8 +194,8 @@ function createAnimations(scene, characterName) {
       { key: characterName, frame: "hurt3.png" },
       { key: characterName, frame: "hurt4.png" },
     ],
-    frameRate: 8,
-    repeat: 1,
+    frameRate: 4,
+    repeat: 0,
   });
   scene.anims.create({
     key: "death",
@@ -208,8 +208,8 @@ function createAnimations(scene, characterName) {
       { key: characterName, frame: "death6.png" },
       { key: characterName, frame: "death7.png" },
     ],
-    frameRate: 8,
-    repeat: 1,
+    frameRate: 5,
+    repeat: 0,
   });
 
   //dragon animation
@@ -242,8 +242,8 @@ function createAnimations(scene, characterName) {
       { key: "dragon", frame: "dragon_knight_attack_3.png" },
       { key: "dragon", frame: "dragon_knight_attack_4.png" },
     ],
-    frameRate: 4,
-    repeat: 1,
+    frameRate: 5,
+    repeat: 0,
   });
 }
 
