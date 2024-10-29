@@ -14,8 +14,7 @@ class SecondLevel extends Phaser.Scene {
         cursors = this.input.keyboard.createCursorKeys();
         handleCountdown(this);
         handleScore(this);
-
-        console.log("Scene2")
+        handleHealth(this)
         updateScore();
     }
 
@@ -24,4 +23,3 @@ class SecondLevel extends Phaser.Scene {
 
     }
 }
-// TODO: display the health and score on scene screen
