@@ -1,7 +1,9 @@
 function handleCountdown(scene) {
   timerText = scene.add.text(10, 10, formatTime(timeLeft), {
-    fontSize: "32px",
+    fontSize: "50px",
     color: "#ffffff",
+    fontFamily: "norse",
+    backgroundColor:'rgba(0,0,0,0.5)',
   });
 
   // Add a repeating event to count down every second
@@ -15,13 +17,10 @@ function handleCountdown(scene) {
 
 function updateCountdown() {
   if (timeLeft > 0) {
-    timeLeft--; // Decrease time left by 1 second
+    timeLeft-=1; // Decrease time left by 1 second
     timerText.setText(formatTime(timeLeft)); // Update the text with formatted time
-  } else if(localStorage.getItem("levelNumber")==="4" && timeLeft>=0) {
-    timeBonus = 1000;
-}
+  }
     else{
-        timeBonus = 0;
         this.time.removeAllEvents(); // Stop the timer
   }
 }
