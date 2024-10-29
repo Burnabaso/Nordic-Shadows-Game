@@ -142,7 +142,7 @@ if (characterName == "knight") {
 var game = new Phaser.Game(config);
 
 function createPlayer() {
-  playername = this.add.text(100, 100, ${userName}, {
+  playername = this.add.text(100, 100, `${userName}`, {
     fontSize: "16px",
     color: "#ffffff", // White color
     fontFamily: "norse",
