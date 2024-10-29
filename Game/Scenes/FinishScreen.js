@@ -1,3 +1,4 @@
+const replayButton = document.getElementById("replay-button");
 class FinishScreen extends Phaser.Scene {
     constructor() {
         super({ key: 'FinishScreen' });
@@ -15,12 +16,13 @@ class FinishScreen extends Phaser.Scene {
        
         createPlayer.call(this);
         //dragon creation
-     
+        
         
         cursors = this.input.keyboard.createCursorKeys();
         handleScore(this);
         handleHealth(this,true);
         updateScore();
+        replayButton.classList.toggle("hidden")
     }
     
     update() {
