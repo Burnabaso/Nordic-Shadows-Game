@@ -37,7 +37,7 @@ var thirdLevelScore=0;
 var game = new Phaser.Game(config);
 
 
-function createPlayer(scene) {
+function createPlayer() {
   playername = this.add.text(100, 100, `${userName}`, {
     fontSize: "16px",
     color: "#ffffff",   // White color
@@ -57,7 +57,7 @@ function createPlayer(scene) {
    )
 }
 
-function updatePlayer(scene) {
+function updatePlayer() {
   playername.x=this.player.body.x +5 - playername.width/2;
   playername.y=this.player.body.y-40;
   if (cursors.left.isDown) {
@@ -88,7 +88,7 @@ function updatePlayer(scene) {
   }
 }
 
-function preloadAssets(scene) {
+function preloadAssets() {
   // define key and source of values
   this.load.atlas(
     "knight",
