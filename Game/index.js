@@ -19,8 +19,13 @@ var cursors;
 var playerSpeed;
 var playerHealth;
 // BonusTime in seconds
-let timeLeft = 200; 
-let timerText;
+var timeLeft = 200; 
+var timerText;
+var timeBonus;
+
+// starts at level 1
+var currentLevel = 1;
+
 // each character has unique health and speed
 if(characterName=='knight'){
   playerSpeed=80;
@@ -87,7 +92,17 @@ function updatePlayer() {
     this.player.anims.play("idle",true);
   }
   if (this.player.x >670 && this.player.y<400 && this.player.y>325) {
-    this.scene.start("SecondLevel");
+    currentLevel++;
+    if (currentLevel==2){
+      this.scene.start("SecondLevel");
+    }
+    else if (currentLevel==3){
+      this.scene.start("ThirdLevel");
+    }
+    // finished
+    else if (currentLevel==4){
+      localStorage.setItem("levelNumber","4")
+    }
   }
 }
 
