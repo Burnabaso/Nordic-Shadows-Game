@@ -39,7 +39,7 @@ var characterName = localStorage.getItem("chosenCharacter");
 var config = {
   type: Phaser.AUTO,
   width: 700,
-  height: 700,
+  height: 750,
   physics: {
     default: "arcade",
     arcade: {
@@ -66,12 +66,12 @@ var game = new Phaser.Game(config);
 function createPlayer() {
   playername = this.add.text(100, 100, `${userName}`, {
     fontSize: "16px",
-    color: "#ffffff", // White color
+    color: "#ffffff",
     fontFamily: "norse",
     backgroundColor: "rgba(0,0,0,0.5)",
   });
   // initiate physics for physics
-  this.player = this.physics.add.sprite(25, 350, characterName);
+  this.player = this.physics.add.sprite(25, 400, characterName);
   this.player.setCollideWorldBounds(true);
   this.player.health = playerHealth;
   this.player.setScale(0.5);
@@ -113,7 +113,7 @@ function updatePlayer() {
     ) {
       this.player.anims.play("idle", true);
     }
-    if (this.player.x > 670 && this.player.y < 400 && this.player.y > 325) {
+    if (this.player.x > 670 && this.player.y < 450 && this.player.y > 375) {
       currentLevel++;
     if (currentLevel==2){
       this.scene.start("SecondLevel");

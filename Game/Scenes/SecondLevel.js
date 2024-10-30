@@ -8,7 +8,7 @@ class SecondLevel extends Phaser.Scene {
     }
 
     create() {
-        let map=this.add.image(350, 350, 'mapLevel2');
+        let map=this.add.image(350, 400, 'mapLevel2');
         map.setScale(this.cameras.main.width / map.width);
         dragons.length = 0;
 
