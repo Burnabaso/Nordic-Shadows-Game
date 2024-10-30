@@ -12,13 +12,13 @@
     <title>Nordic Shadows</title>
   </head>
   <body>
-    <nav class="black-bg">
-        <div class="nav-titles white-bg">
+      <nav class="black-bg">
+          <div class="nav-titles white-bg">
             <a href="#controls" class="brown-txt">controls</a>
             <a href="#lore" class="brown-txt">lore</a>
             <a href="#characters" class="brown-txt">characters</a>
         </div>
-        <div class="nav-logo " id="logo-scroll-top">
+        <div class="nav-logo ">
             <img src="/assets/logo.svg" alt="logo" />
         </div>
         <div class="nav-titles white-bg">
@@ -27,16 +27,16 @@
             <button>
                 <a href="/pages/player-setup/main.html">play</a>
             </button>
-      </div>
-      <div class="hamburger-menu" id="mobile-menu">
-        <div class="burger-icon"><img src="/assets/informative-website/nav-bar/burger-menu.svg" alt=""></div>
-        <div class="side-menu hidden" id="mobile-menu-content">
-            <a href="#controls" class="brown-txt">controls</a>
-            <a href="#lore" class="brown-txt">lore</a>
-            <a href="#characters" class="brown-txt">characters</a>
-            <a href="#team" class="brown-txt">team</a>
-            <a href="#reach-us" class="brown-txt">reach us</a>
         </div>
+        <div class="hamburger-menu" id="mobile-menu">
+            <div class="burger-icon"><img src="/assets/informative-website/nav-bar/burger-menu.svg" alt=""></div>
+            <div class="side-menu hidden" id="mobile-menu-content">
+                <a href="#controls" class="brown-txt">controls</a>
+                <a href="#lore" class="brown-txt">lore</a>
+                <a href="#characters" class="brown-txt">characters</a>
+                <a href="#team" class="brown-txt">team</a>
+                <a href="#reach-us" class="brown-txt">reach us</a>
+            </div>
       </div>
     </nav>
     <div class="hero-section">
@@ -46,7 +46,7 @@
             <button><a href="/pages/player-setup/main.html">launch battle!</a></button>
         </div>
     </div>
-    <div class="team-section">
+    <div class="team-section" id="team">
         <div class="team-container">
             <h1>the founding fathers</h1>
             <div class="team-card-container">
@@ -80,6 +80,9 @@
             </div>
         </div>
     </div>
+    <div class="scroll-top" id="logo-scroll-top">
+        <img src="/assets/informative-website/scroll-top.svg" alt="scroll top">
+    </div>
     <script src="/scripts/dom.js" defer></script>
-  </body>
+</body>
 </html>
