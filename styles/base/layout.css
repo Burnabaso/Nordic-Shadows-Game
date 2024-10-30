@@ -41,7 +41,9 @@ a{
     text-decoration: none;
     color: white;
 }
-
+p{
+    font-size: 34px;   
+}
 @keyframes button-hover {
     0%, 100% {
         transform: translateY(0);
@@ -50,13 +52,16 @@ a{
         transform: translateY(-10px);
     }
 }
-@media screen and (max-width:417px) {
+@media screen and (max-width:542px) {
     nav{
         padding-inline: 10px;
 
     }
     .nav-logo{
         width: 60px;
+    }
+    .hero-section{
+        background-image: none;
     }
     .hero-section h1{
         font-size: 100px;
@@ -73,7 +78,30 @@ a{
         justify-content: center;
         font-size: 30px;
     }
-    
+  .main-tutorial-container{
+    width: 200px;
+    justify-content: center;
+   
+    }
+    .tutorial-section{
+        width:80%;
+    }
+    .game-map-img {
+        max-width: 250px;
+    }
+    .knight-kb-img {
+        width:100px
+    }
+    .key-section{
+        flex-wrap: wrap;
+    }
+    .key-img{
+        width: 70px;
+    }
+    p{
+        width: 60%;
+
+    }
 }
 @media screen and (max-width:933px) {
     .nav-titles{
@@ -82,12 +110,24 @@ a{
     .hamburger-menu{
         display: block;
     }
-    .team-container>h1{
+    .wood-container>h1{
         font-size: 90px;
     }
 }
 @media screen and (max-width:1102px) {
-    .team-section{
+    .main-section{
         height: fit-content;
     } 
+}
+@media screen and (min-width:1620px) {
+    nav,.nav-titles>button>a{
+        font-size: 30px ;
+    }
+    .nav-logo{
+        width: 100px;
+    }
+    .main-section{
+        height: 100vh;
+    } 
+
 }

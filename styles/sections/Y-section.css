@@ -1,8 +1,4 @@
 .backstory-section {
-    text-align: center; /* Centers all content within this section */
-}
-
-.backstory-section {
     text-align: center;
     display: flex;
     flex-direction: column;
@@ -17,9 +13,22 @@
 }
 
 .maze-image {
-    width: 250px; /* Increase maze size */
-    height: 250px;
+    width: 400px; /* Increase maze size */
     margin-bottom: 20px; /* Adds space below the maze */
+}
+
+.transparent-container{
+    width: 90%;
+    border-radius: 24px;
+    background-repeat: no-repeat;
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+    padding: 3em 0;
+    gap: 40px;
+    max-width: 1300px;
 }
 
 /* Characters Section Styles */
@@ -29,7 +38,6 @@
 }
 
 .character-title {
-    font-family: 'viking';
     color: #222651;
     margin: 20px 0; /* Adds spacing above and below the title */
 }
@@ -101,12 +109,12 @@
     text-align: center;
     color: white;
     margin-bottom: 40px; /* Adds space below the text section */
+    border-radius: 24px;
+    line-height: 2em;
 }
 
 .backstory-title, .character-title {
-    font-family: 'viking';
     color: #222651;
-    margin-bottom: 20px; /* Adds space below each title */
 }
 
 
