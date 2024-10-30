@@ -8,6 +8,7 @@
     padding: 30px;
     font-size: 48px;
     height: 940px;
+    height: 80%;
 }
 
 .how-to-play-section h1 {
@@ -20,10 +21,12 @@
     display: flex;
     justify-content: space-between;
     height: 80%;
+    flex-wrap: wrap;
 }
 
 .tutorial-section {
     display: flex;
+    flex-wrap: wrap;
     flex-direction: column;
     justify-content: space-between;
     width: 50%;
@@ -36,6 +39,7 @@
 
 .key-section {
     display: flex;
+    flex-wrap: wrap;
     align-items: center;
     justify-content: space-between;
     font-size: 48px;
@@ -49,14 +53,17 @@
 
 .key-img {
     max-width: 100px;
-    border-radius: 50%;
+    border-radius: 50px;
+    height: auto;
 }
 
 .avoid_demon_section {
     display: flex;
+    flex-wrap: row;
     flex-direction: row;
     align-items: flex-end; 
     justify-content: flex-start;
+
 }
 .avoid_demon_section p{
     width: 40%;
@@ -118,6 +125,7 @@
 
 .map-section{
     display: flex;
+    flex-wrap: wrap;
     border-radius: 24px;
     margin: 28px 36px;
     padding: 25px;
@@ -135,6 +143,7 @@
 
 .footer-section{
     display: flex;
+    flex-wrap: wrap;
     background-image: url("../Assets/setup-page/btn-bg.jpg");
     height: 40vh;
     width: 100%;
@@ -165,4 +174,52 @@
 
 .contact-us div{
     font-size: 40px;
+}
+
+@media (max-width: 600px) {
+    .how-to-play-section {
+        margin: 10px;
+        padding: 15px;
+        font-size: 24px;
+    }
+
+    .how-to-play-section h1 {
+        font-size: 72px;
+    }
+
+    .tutorial {
+        flex-direction: column;
+    }
+
+    .tutorial-section {
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .keyboard-knight, .golden-section {
+        align-items: center;
+        text-align: center;
+    }
+
+    .map-section {
+        margin: 10px;
+        padding: 15px;
+        font-size: 24px;
+    }
+
+    .map-section img {
+        width: 100%;
+    }
+
+    .footer-section, .contact-us {
+        font-size: 28px;
+    }
+
+    .contact-us div {
+        font-size: 36px;
+    }
+
+    .contact-us {
+        width: fit-content;
+    }
 }
