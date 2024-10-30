@@ -52,6 +52,7 @@ p{
         transform: translateY(-10px);
     }
 }
+
 @media screen and (max-width:542px) {
     nav{
         padding-inline: 10px;
@@ -102,6 +103,20 @@ p{
         width: 80%;
         margin-inline: auto;
     }
+    .made-with{
+        display: none;
+       }
+       .footer-content{
+        justify-content: center;
+       }
+}
+@media screen and (max-width:872px) and (min-width:542px) {
+   .made-with{
+    display: none;
+   }
+   .footer-content{
+    justify-content: center;
+   }
 }
 @media screen and (max-width:933px) {
     .nav-titles{
@@ -126,8 +141,9 @@ p{
     .nav-logo{
         width: 100px;
     }
-    .main-section{
+    .main-section,.footer-section{
         height: 100vh;
     } 
+
 
 }

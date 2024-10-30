@@ -87,29 +87,35 @@
     border-radius: 24px;
 }
 
-
-.footer-section{
+.footer-section {
     display: flex;
-    flex-wrap: wrap;
-    background-image: url("/game/assets/setup-page/wood.svg");
+    position: relative;
+    height: 500px;
+}
+.footer-content{
+    display: flex;
     background-repeat: no-repeat;
     background-size: cover;
-    height: 40vh;
     width: 100%;
     justify-content: space-between;
-    padding: 1vh 5vh;
-    font-size: 48px;
+    padding: 1em;
+    font-size: 40px;
+    background-image: url("/assets/setup-page/btn-bg.jpg");
+    min-height: 300px;
+    position: absolute;
+    bottom: 0;
+    flex-wrap: wrap;
 }
+
 .made-with{
     display: flex;
     flex-direction: column;
-    justify-content: space-around;
     align-items: center;
 }
-.made-with img{ 
-    max-width: 30vh;
-    max-height: 30vh;
+.footer-logo{
+    width: 300px;
 }
+
 .contact-us{
     display: flex;
     flex-direction: column;
@@ -117,10 +123,8 @@
     text-align: center;
     justify-content: space-between;
     align-items: center;
-    padding: 1vh 10vh;
-    padding-bottom: 1vh;
+    padding: 1em;
+    background-color: #FABC3F;
 }
 
-.contact-us div{
-    font-size: 40px;
-}
+

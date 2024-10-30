@@ -112,6 +112,7 @@ nav{
     background-position: center;
     background-size:cover;
     flex-wrap: wrap;
+    margin-bottom: 3em;
     
 }
 .hero-section>div{
@@ -215,11 +216,12 @@ nav{
 }
 
 .separator{
-    background-image: url('/game/assets/setup-page/wood.svg');
+    background-image: url('/assets/setup-page/btn-bg.jpg');
     background-repeat: repeat;
     background-size: cover;
     width: 100%;
     height: 40px;
+    margin: 3em 0;
 }
 
 .scroll-top{
