@@ -7,9 +7,11 @@ function handleScore(scene) {
     backgroundColor:'rgba(0,0,0,0.5)',
 });
 }
-function updateScore(){
+function updateScore(gemCollected){
     // finished with time left 1000points
-    
+    if(gemCollected){
+        totalScore+=50;
+    }
     if(localStorage.getItem("levelNumber")=="2"){
         totalScore+=250;
     }
