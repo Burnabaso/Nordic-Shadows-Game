@@ -45,7 +45,7 @@ nav{
     padding-inline: 50px;
     padding-top: 10px;
     font-size: 20px;
-position: sticky;
+    position: sticky;
     top: 0;
     z-index: 2;
 }
