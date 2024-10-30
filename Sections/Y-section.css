@@ -1,0 +1,71 @@
+.backstory-section {
+    text-align: center; /* Centers all content within this section */
+}
+
+.backstory-section {
+    text-align: center;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.maze-image-container {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    width: 100%; /* Ensures it takes the full width for centering */
+}
+
+.maze-image {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+/* Characters Section Styles */
+.characters-section {
+    padding: 20px;
+    text-align: center; /* Center-aligns all content in the section */
+}
+
+.character-title {
+    font-family: 'viking';
+    color: #222651;
+    margin: 20px 0; /* Adds spacing above and below the title */
+}
+
+.character-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    gap: 20px;
+    flex-wrap: wrap; /* Allows the cards to wrap on smaller screens */
+}
+
+.character-card {
+    width: 150px;
+    height: 250px;
+    background-color: #D9D9D9;
+    border: 5px solid #6A3F07;
+    border-radius: 15px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
+    overflow: hidden;
+}
+
+.character-card img {
+    width: 80%;
+    height: auto;
+    margin-top: 10px;
+}
+
+.character-info {
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    font-family: 'norse';
+    font-size: 0.9em;
+    color: #6A3F07;
+}
