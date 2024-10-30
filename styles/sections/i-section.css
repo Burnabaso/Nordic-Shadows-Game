@@ -1,0 +1,64 @@
+.nav-logo{
+    width: 80px;
+}
+.nav-titles{
+    display: flex;
+    gap: 37px;
+    height: 51px;
+    align-items: center;
+    padding-inline: 20px;
+    border-radius: 7px;
+    font-weight: bold;
+}
+.nav-titles>a{
+    transition: all 0.3s ease-in-out;
+    height: 70%;
+    padding-inline: 10px;
+    display: flex;
+    align-items: center;
+    border-radius: 7px;
+}
+.nav-titles>a:hover{
+    background-color: #6A3F07;
+    color: white;
+}
+.nav-titles>button{
+    background-image: url('/game/assets/setup-page/wood.svg');
+    height: 39px;
+    width: 100px;
+    border-radius: 7px;
+    font-size: 20px;
+}
+.hamburger-menu{
+    position: relative;
+    display: none;
+}
+
+.burger-icon{
+    width: 40px;
+    cursor: pointer;
+    transition: scale 0.3s ease;
+}
+.burger-icon:hover{
+    scale: 1.04;
+}
+.side-menu{
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    background-color: #00000075;
+    border-radius: 7px;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    padding: 8px;
+    top: 65px;
+    right: 0px;
+    transition: display 0.3s ease-out;
+}
+.side-menu>a{
+    transition: color 0.4s ease;
+}
+.side-menu>a:hover{
+    color: white;
+}

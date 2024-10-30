@@ -34,12 +34,40 @@ button{
     cursor: pointer;
     position: relative;
 }
-
+a{
+    text-decoration: none;
+    color: white;
+}
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 50px;
+    padding-top: 10px;
+    font-size: 20px;
+}
 @keyframes button-hover {
     0%, 100% {
         transform: translateY(0);
     }
     50% {
         transform: translateY(-10px);
+    }
+}
+@media screen and (max-width:417px) {
+    nav{
+        padding-inline: 10px;
+
+    }
+    .nav-logo{
+        width: 60px;
+    }
+}
+@media screen and (max-width:933px) {
+    .nav-titles{
+        display: none;
+    }    
+    .hamburger-menu{
+        display: block;
     }
 }
