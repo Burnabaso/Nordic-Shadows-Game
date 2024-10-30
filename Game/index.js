@@ -159,11 +159,7 @@ function preloadAssets() {
     "../Game/Assets/dragon/dragon.json"
   );
   // for now fake maze
-  this.load.image('mapLevel1',"../Game/Assets/maps/level1.jpg");
-  this.load.image('mapLevel2',"../Game/Assets/maps/level2.jpg");
-  this.load.image('mapLevel3',"../Game/Assets/maps/level3.jpg");
-  this.load.image('mapFinish',"../Game/Assets/maps/finishScreen.svg");
-
+ this.load.tilemapTiledJSON("mapLevel1", "../Game/Assets/mazes/mapLevel1")
 }
 
 function createAnimations(scene, characterName) {
