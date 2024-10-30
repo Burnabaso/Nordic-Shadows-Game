@@ -52,18 +52,30 @@
     display: flex;
     flex-direction: column;
     align-items: center;
-    justify-content: space-between; /* Spaces elements evenly in the card */
+    justify-content: space-between;
     box-shadow: 0 4px 8px rgba(0, 0, 0, 0.2);
     overflow: hidden;
-    padding: 10px 0; /* Adds padding at the top and bottom */
+    padding: 10px 0;
 }
 
+
 .character-card img {
-    width: 80%;
-    height: auto;
-    margin-top: auto; /* Aligns images at the top consistently */
-    flex-shrink: 0; /* Prevents the image from shrinking */
+    max-width: 80%; /* Ensures the image doesn’t exceed the white background */
+    max-height: 100%; /* Keeps the image within the white background height */
+    object-fit: contain; /* Maintains image aspect ratio */
 }
+
+.character-image-bg {
+    width: 85%; /* Slightly wider for a more balanced look */
+    height: 150px; /* Larger height to extend close to the yellow bar */
+    background-color: white;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    margin-bottom: 5px; /* Small margin between white background and yellow bar */
+}
+
 
 .character-info {
     width: 100%;
