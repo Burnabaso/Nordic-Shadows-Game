@@ -40,6 +40,8 @@ class FirstLevel extends Phaser.Scene {
                 gemSprite.setOrigin(0, 1).setScale(scale); 
             });
         }
+
+        mazeWalls.setCollisionByExclusion([-1]);
         
 
 
@@ -51,6 +53,9 @@ class FirstLevel extends Phaser.Scene {
         ], 120));
         
         createAnimations(this, characterName);
+
+        this.physics.add.collider(this.player, mazeWalls);
+
         
         cursors = this.input.keyboard.createCursorKeys();
         handleCountdown(this);
