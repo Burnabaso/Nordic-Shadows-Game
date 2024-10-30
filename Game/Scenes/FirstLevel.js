@@ -33,6 +33,8 @@ class FirstLevel extends Phaser.Scene {
             keyLayer.objects.forEach(key => {
                 const keySprite = this.physics.add.sprite(key.x * scale, key.y * scale, "key_big");
                 keySprite.setOrigin(0, 1).setScale(scale); 
+                
+
             });
         }
     
