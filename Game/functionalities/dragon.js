@@ -3,6 +3,11 @@ class Dragon {
       this.scene = scene;
       this.dragon = this.scene.physics.add.sprite(spawnX, spawnY, "dragon");
       this.dragon.setScale(0.4);
+      this.dragon.body.setSize(62,32);
+      this.dragon.body.setOffset(
+        this.dragon.width / 2,
+        this.dragon.height / 2 
+      );
       this.waypoints = waypoints;
       this.currentWaypointIndex = 0;
       this.speed = speed;

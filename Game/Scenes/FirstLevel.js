@@ -9,7 +9,7 @@ class FirstLevel extends Phaser.Scene {
 
     create() {
         
-        let map=this.add.image(350, 350, 'mapLevel1');
+        let map=this.add.image(350, 400, 'mapLevel1');
         map.setScale(this.cameras.main.width / map.width);
         createPlayer.call(this);
         //dragon creation
