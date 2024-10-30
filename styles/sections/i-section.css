@@ -1,3 +1,10 @@
+body{
+    background-image: url('/assets/informative-website/sky-bg.svg');
+    background-repeat: no-repeat;
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed;
+}
 .nav-logo{
     width: 80px;
     cursor: pointer;
