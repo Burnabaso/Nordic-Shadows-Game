@@ -176,7 +176,7 @@
     font-size: 40px;
 }
 
-@media (max-width: 600px) {
+@media (max-width: 1000px) {
     .how-to-play-section {
         margin: 10px;
         padding: 15px;
@@ -190,15 +190,6 @@
         font-size: 32px;
         margin: 10px;
     }
-    .key-section{
-        display: flex;
-        flex-direction: row;
-        justify-content: start;
-    }
-    .key-img{
-        width: 50%;
-    }
-
     .dragon_img{
         margin-top: 60px;
         margin-bottom: 0px;
@@ -220,9 +211,18 @@
     }
 
     .map-section {
+        justify-content: center;
+        align-items: center;
+        width: 100%;
         margin: 10px;
         padding: 15px;
         font-size: 32px;
+    }
+    .meet-us-text{
+        width: 100%;
+        text-align: center;
+        margin: 0;
+        padding: 0;
     }
 
     .map-section img {
