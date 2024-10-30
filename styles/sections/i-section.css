@@ -5,6 +5,18 @@ body{
     background-position: center;
     background-attachment: fixed;
 }
+nav{
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    padding-inline: 50px;
+    padding-top: 10px;
+    font-size: 20px;
+    position: sticky;
+    top: 0;
+    z-index: 2;
+    overflow: hidden;
+}
 .nav-logo{
     width: 80px;
     cursor: pointer;
@@ -144,8 +156,16 @@ body{
     background-repeat: no-repeat;
     background-size: cover;
     height: 85%;
-    
 }
+
 .team-image {
     width: 10px;
+}
+.scroll-top{
+    cursor: pointer;
+    width: 50px;
+    z-index: 10;
+    position: fixed;
+    bottom: 10px;
+    right: 10px;
 }
