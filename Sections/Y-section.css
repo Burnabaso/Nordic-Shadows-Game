@@ -69,3 +69,15 @@
     font-size: 0.9em;
     color: #6A3F07;
 }
+
+.backstory-text {
+    padding: 20px;
+    font-family: 'roman-uncial-modern';
+    font-size: 1.2em;
+    text-align: center;
+    background-image: url('/Assets/setup-page/btn-bg.jpg'); 
+    background-size: cover; 
+    background-position: center; 
+    background-repeat: no-repeat; 
+    color: white; 
+}
