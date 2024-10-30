@@ -1,7 +1,7 @@
 function handleHealth(scene,finish) {
     if(finish){
         HealthText = scene.add.text(10, 10, `Health:  ${playerHealth}`, {
-            fontSize: "50px",
+            fontSize: "40px",
             fill: "#ffffff",
             fontFamily: "norse",
             backgroundColor:'rgba(0,0,0,0.5)',
@@ -9,7 +9,7 @@ function handleHealth(scene,finish) {
     }
     else{
         HealthText = scene.add.text(220, 10, `Health:  ${playerHealth}`, {
-           fontSize: "50px",
+           fontSize: "40px",
            fill: "#ffffff",
            fontFamily: "norse",
            backgroundColor:'rgba(0,0,0,0.5)',

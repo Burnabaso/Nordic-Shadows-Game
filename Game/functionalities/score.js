@@ -1,7 +1,7 @@
 
 function handleScore(scene) {
  scoreText = scene.add.text(500, 10, "score:  0", {
-    fontSize: "50px",
+    fontSize: "40px",
     fill: "#ffffff",
     fontFamily: "norse",
     backgroundColor:'rgba(0,0,0,0.5)',

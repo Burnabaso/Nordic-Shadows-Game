@@ -82,7 +82,7 @@
 
 }
 .backstory-text {
-    background-image: url('/Assets/setup-page/btn-bg.jpg'); /* Replace with actual path */
+    background-image: url('/game/assets/setup-page/btn-bg.jpg'); /* Replace with actual path */
     background-size: cover;
     background-position: center;
     background-repeat: no-repeat;

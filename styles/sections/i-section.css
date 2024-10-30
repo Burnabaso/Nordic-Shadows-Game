@@ -152,7 +152,7 @@ nav{
     padding: 2em 0;
 }
 .wood-container{
-    background-image: url('/game/assets/setup-page/wood.svg');
+    background-image: url('/game/assets/setup-page/btn-bg.jpg');
     width: 90%;
     background-repeat: no-repeat;
     background-size: cover;
