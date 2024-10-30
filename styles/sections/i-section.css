@@ -1,5 +1,6 @@
 .nav-logo{
     width: 80px;
+    cursor: pointer;
 }
 .nav-titles{
     display: flex;
