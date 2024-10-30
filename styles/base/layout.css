@@ -15,6 +15,9 @@
     src: url('/assets/fonts/norse/Norse-Bold.otf');
     font-weight: bold;
 }
+html{
+    scroll-behavior: smooth;
+}
 *{
     padding: 0;
     margin: 0;
@@ -34,6 +37,10 @@ button{
     cursor: pointer;
     position: relative;
 }
+a{
+    text-decoration: none;
+    color: white;
+}
 
 @keyframes button-hover {
     0%, 100% {
@@ -42,4 +49,45 @@ button{
     50% {
         transform: translateY(-10px);
     }
+}
+@media screen and (max-width:417px) {
+    nav{
+        padding-inline: 10px;
+
+    }
+    .nav-logo{
+        width: 60px;
+    }
+    .hero-section h1{
+        font-size: 100px;
+        color: white;
+    }
+    .hero-section button{
+        background-image: url('/game/assets/setup-page/wood.svg');
+        background-repeat: no-repeat;
+        background-size: cover;
+        width: 260px;
+        height: 86px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 30px;
+    }
+    
+}
+@media screen and (max-width:933px) {
+    .nav-titles{
+        display: none;
+    }    
+    .hamburger-menu{
+        display: block;
+    }
+    .team-container>h1{
+        font-size: 90px;
+    }
+}
+@media screen and (max-width:1102px) {
+    .team-section{
+        height: fit-content;
+    } 
 }

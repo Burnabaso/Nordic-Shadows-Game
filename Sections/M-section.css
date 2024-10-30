@@ -1,0 +1,236 @@
+*{
+    font-family: 'norse';
+}
+.how-to-play-section {
+    background-image: url("../Assets/setup-page/btn-bg.jpg");
+    border-radius: 24px;
+    margin: 28px 36px;
+    padding: 30px;
+    font-size: 48px;
+    height: 940px;
+    height: 80%;
+}
+
+.how-to-play-section h1 {
+    font-size: 128px; 
+    text-align: center;
+    padding: 20px;
+}
+
+.tutorial {
+    display: flex;
+    justify-content: space-between;
+    height: 80%;
+    flex-wrap: wrap;
+}
+
+.tutorial-section {
+    display: flex;
+    flex-wrap: wrap;
+    flex-direction: column;
+    justify-content: space-between;
+    width: 50%;
+}
+
+.game-map-img {
+    max-width: 500px;
+    height: auto;
+}
+
+.key-section {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: space-between;
+    font-size: 48px;
+    margin-top: 10px;
+    width: 70%;
+}
+
+.key-section p {
+    width: 70%;
+}
+
+.key-img {
+    max-width: 100px;
+    border-radius: 50px;
+    height: auto;
+}
+
+.avoid_demon_section {
+    display: flex;
+    flex-wrap: row;
+    flex-direction: row;
+    align-items: flex-end; 
+    justify-content: flex-start;
+
+}
+.avoid_demon_section p{
+    width: 40%;
+}
+
+.dragon_img {
+    padding-left: 20px;
+    max-width: 300px;
+    margin-right: 10px;
+    height: auto;
+}
+
+.keyboard-knight {
+    margin-top: 100px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: space-around;
+    flex-wrap: wrap;
+    gap:0px;
+    margin-bottom: 10px;
+    max-width: 80%;
+}
+
+.kb-img {
+    width: 400px;
+    height: auto;
+    max-width: 300px;
+    margin-right: 10px;
+}
+
+.knight-img {
+    max-width: 200px;
+    height: auto;
+}
+
+.keyboard-knight p {
+    width: 100%;
+    text-align: center;
+    margin-top: 10px;
+}
+
+.golden-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.golden-section img {
+    max-width: 100px;
+    margin-bottom: 5px;
+}
+
+.golden-section p {
+    text-align: center;
+}
+
+
+.map-section{
+    display: flex;
+    flex-wrap: wrap;
+    border-radius: 24px;
+    margin: 28px 36px;
+    padding: 25px;
+    font-size: 48px;
+}
+.meet-us-text{
+    width: 20%;
+    margin-right: 100px;
+}
+.map-section img{
+    width: 50%;
+    border-radius: 24px;
+}
+
+
+.footer-section{
+    display: flex;
+    flex-wrap: wrap;
+    background-image: url("../Assets/setup-page/btn-bg.jpg");
+    height: 40vh;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1vh 5vh;
+    font-size: 48px;
+}
+.made-with{
+    display: flex;
+    flex-direction: column;
+    justify-content: space-around;
+    align-items: center;
+}
+.made-with img{ 
+    max-width: 30vh;
+    max-height: 30vh;
+}
+.contact-us{
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1vh 10vh;
+    padding-bottom: 1vh;
+}
+
+.contact-us div{
+    font-size: 40px;
+}
+
+@media (max-width: 1000px) {
+    .how-to-play-section {
+        margin: 10px;
+        padding: 15px;
+        font-size: 32px;
+    }
+
+    .how-to-play-section h1 {
+        font-size: 72px;
+    }
+    .key-section p{
+        font-size: 32px;
+        margin: 10px;
+    }
+    .dragon_img{
+        margin-top: 60px;
+        margin-bottom: 0px;
+    }
+
+    .tutorial {
+        flex-direction: column;
+    }
+
+    .tutorial-section {
+        align-items: center;
+        width: 100%;
+        margin-bottom: 20px;
+    }
+
+    .keyboard-knight, .golden-section {
+        margin-top: 20px;
+        align-items: center;
+        text-align: center;
+    }
+
+    .footer-section, .contact-us {
+        font-size: 36px;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+    }
+    .made-with{
+        align-items: center;
+    }
+
+    .contact-us div {
+        font-size: 32px;
+    }
+
+    .contact-us {
+        width: 100%;
+        margin: 0;
+        margin-bottom: 20px;
+    }
+    .contact-us div{
+        font-size: 32px;
+    }
+}

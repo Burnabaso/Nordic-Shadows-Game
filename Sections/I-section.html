@@ -1,11 +1,88 @@
 <!DOCTYPE html>
 <html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Document</title>
-</head>
-<body>
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     
+    <link rel="stylesheet" href="/styles/base/colors.css">
+    <link rel="stylesheet" href="/styles/sections/i-section.css">
+    <link rel="stylesheet" href="/styles/base/utlities.css">
+    <link rel="stylesheet" href="/styles/base/layout.css">
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon" />
+    <title>Nordic Shadows</title>
+  </head>
+  <body>
+      <nav class="black-bg">
+          <div class="nav-titles white-bg">
+            <a href="#controls" class="brown-txt">controls</a>
+            <a href="#lore" class="brown-txt">lore</a>
+            <a href="#characters" class="brown-txt">characters</a>
+        </div>
+        <div class="nav-logo ">
+            <img src="/assets/logo.svg" alt="logo" />
+        </div>
+        <div class="nav-titles white-bg">
+            <a href="#team" class="brown-txt">team</a>
+            <a href="#reach-us" class="brown-txt">reach us</a>
+            <button>
+                <a href="/pages/player-setup/main.html">play</a>
+            </button>
+        </div>
+        <div class="hamburger-menu" id="mobile-menu">
+            <div class="burger-icon"><img src="/assets/informative-website/nav-bar/burger-menu.svg" alt=""></div>
+            <div class="side-menu hidden" id="mobile-menu-content">
+                <a href="#controls" class="brown-txt">controls</a>
+                <a href="#lore" class="brown-txt">lore</a>
+                <a href="#characters" class="brown-txt">characters</a>
+                <a href="#team" class="brown-txt">team</a>
+                <a href="#reach-us" class="brown-txt">reach us</a>
+            </div>
+      </div>
+    </nav>
+    <div class="hero-section">
+        <div>
+            <h1>nordic</h1>
+            <h1>shadows</h1>
+            <button><a href="/pages/player-setup/main.html">launch battle!</a></button>
+        </div>
+    </div>
+    <div class="team-section" id="team">
+        <div class="team-container">
+            <h1>the founding fathers</h1>
+            <div class="team-card-container">
+                <div class="team-card">
+                    <div class="team-image" >
+                        <img src="/assets/informative-website/team-section/mohammad.jpg" alt="mohamamd" >
+                    </div>
+                    <div class="team-content-card">
+                        <p>mohammad fakih</p>
+                        <p>Future sef graduate</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="/assets/informative-website/team-section/yasmina.jpg" alt="yasmina">
+                    </div>
+                    <div class="team-content-card">
+                        <p>yasmina maddah</p>
+                        <p>passionate</p>
+                    </div>
+                </div>
+                <div class="team-card">
+                    <div class="team-image">
+                        <img src="/assets/informative-website/team-section/ibrahim.jpeg" alt="Ibrahim">
+                    </div>
+                    <div class="team-content-card">
+                        <p>ibrahim itani</p>
+                        <p>runs on coffee</p>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+    <div class="scroll-top" id="logo-scroll-top">
+        <img src="/assets/informative-website/scroll-top.svg" alt="scroll top">
+    </div>
+    <script src="/scripts/dom.js" defer></script>
 </body>
 </html>
