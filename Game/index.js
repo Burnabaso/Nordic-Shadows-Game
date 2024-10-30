@@ -159,7 +159,14 @@ function preloadAssets() {
     "../Game/Assets/dragon/dragon.json"
   );
   // for now fake maze
- this.load.tilemapTiledJSON("mapLevel1", "../Game/Assets/mazes/mapLevel1")
+ this.load.tilemapTiledJSON("mapLevel1", "../Game/Assets/mazes/mapLevel1.JSON")
+
+ this.load.image("TXTilesetGrass", "../Game/Assets/TileSets/TXTilesetGrass.png");
+ this.load.image("Wall-Dirt", "../Game/Assets/TileSets/Wall-Dirt.png");
+ this.load.image("TXPlant", "../Game/Assets/TileSets/TXPlant.png");
+ this.load.image("key_big", "../Game/Assets/TileSets/key_big.png");
+ this.load.image("GoldenIngot", "../Game/Assets/TileSets/GoldenIngot.png");
+
 }
 
 function createAnimations(scene, characterName) {
