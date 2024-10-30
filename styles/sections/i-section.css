@@ -162,6 +162,7 @@ nav{
     padding: 3em 0;
     gap: 40px;
     max-width: 1300px;
+    border-radius: 24px;
 }
 .wood-container>h1,.transparent-container>h1{
     font-size: 110px;
