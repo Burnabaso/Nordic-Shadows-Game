@@ -139,30 +139,30 @@ function preloadAssets() {
   // define key and source of values
   this.load.atlas(
     "knight",
-    "../Game/Assets/knight/spritesheet.png",
-    "../Game/Assets/knight/spritesheet.json"
+    "/Game/Assets/knight/spritesheet.png",
+    "/Game/Assets/knight/spritesheet.json"
   );
   this.load.atlas(
     "mage",
-    "../Game/Assets/mage/spritesheet.png",
-    "../Game/Assets/mage/spritesheet.json"
+    "/Game/Assets/mage/spritesheet.png",
+    "/Game/Assets/mage/spritesheet.json"
   );
   this.load.atlas(
     "rogue",
-    "../Game/Assets/rogue/spritesheet.png",
-    "../Game/Assets/rogue/spritesheet.json"
+    "/Game/Assets/rogue/spritesheet.png",
+    "/Game/Assets/rogue/spritesheet.json"
   );
   this.load.atlas(
     "dragon",
-    "../Game/Assets/dragon/dragon.png",
-    "../Game/Assets/dragon/dragon.json"
+    "/Game/Assets/dragon/dragon.png",
+    "/Game/Assets/dragon/dragon.json"
   );
   this.load.image('gate',"../Game/Assets/gate.svg")
   // for now fake maze
-  this.load.image('mapLevel1',"../Game/Assets/maps/level1.jpg");
-  this.load.image('mapLevel2',"../Game/Assets/maps/level2.jpg");
-  this.load.image('mapLevel3',"../Game/Assets/maps/level3.jpg");
-  this.load.image('mapFinish',"../Game/Assets/maps/finishScreen.svg");
+  this.load.image('mapLevel1',"/Game/Assets/maps/level1.jpg");
+  this.load.image('mapLevel2',"/Game/Assets/maps/level2.jpg");
+  this.load.image('mapLevel3',"/Game/Assets/maps/level3.jpg");
+  this.load.image('mapFinish',"/Game/Assets/maps/finishScreen.svg");
 
 }
 

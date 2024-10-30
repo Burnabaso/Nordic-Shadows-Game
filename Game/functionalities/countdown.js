@@ -1,6 +1,6 @@
 function handleCountdown(scene) {
   timerText = scene.add.text(10, 10, formatTime(timeLeft), {
-    fontSize: "50px",
+    fontSize: "40px",
     color: "#ffffff",
     fontFamily: "norse",
     backgroundColor:'rgba(0,0,0,0.5)',

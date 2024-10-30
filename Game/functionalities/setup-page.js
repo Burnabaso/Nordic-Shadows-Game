@@ -11,7 +11,7 @@ var userName;
 var bgSound = new Audio('/assets/audio/setup-page.mp3')
 bgSound.play();
 nextButton1?.addEventListener("click", function () {
-window.location.href = "http://localhost:5500/pages/player-setup/username.html";
+window.location.href = "http://localhost:5500/game/pages/player-setup/username.html";
 });
 nextButton2?.addEventListener("click", function () {
     if(userNameInput.value.trim()===""){
@@ -26,22 +26,22 @@ nextButton2?.addEventListener("click", function () {
         const userValue = userNameInput.value.trim();
         userName = userValue;
         localStorage.setItem("chosenUsername", userName);
-        window.location.href = "http://localhost:5500/pages/player-setup/character.html";
+        window.location.href = "http://localhost:5500/game/pages/player-setup/character.html";
     }
 });
 
 vikingCharacter?.addEventListener("click", function () {
   chosenCharacter = "knight";
   localStorage.setItem("chosenCharacter", chosenCharacter);
-  window.location.href = "http://localhost:5500/pages/game.html";
+  window.location.href = "http://localhost:5500/game/pages/game.html";
 });
 mageCharacter?.addEventListener("click", function () {
   chosenCharacter = "mage";
   localStorage.setItem("chosenCharacter", chosenCharacter);
-  window.location.href = "http://localhost:5500/pages/game.html";
+  window.location.href = "http://localhost:5500/game/pages/game.html";
 });
 assassinCharacter?.addEventListener("click", function () {
   chosenCharacter = "rogue";
   localStorage.setItem("chosenCharacter", chosenCharacter);
-  window.location.href = "http://localhost:5500/pages/game.html";
+  window.location.href = "http://localhost:5500/game/pages/game.html";
 });

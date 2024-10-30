@@ -34,7 +34,7 @@
     margin-top: 20px;
     padding: 10px 50px;
     color: white;
-    background-image: url('/assets/setup-page/btn-bg.jpg');
+    background-image: url('/game/assets/setup-page/wood.svg');
     font-size: larger;
     display: block;
     text-decoration: none;
@@ -51,7 +51,7 @@
     width: 100%;
 }
 .setup-hero input{
-    background-image: url('/assets/setup-page/btn-bg.jpg');
+    background-image: url('/game/assets/setup-page/btn-bg.jpg');
     padding: 20px;
     width: 20%;
     text-align: center;

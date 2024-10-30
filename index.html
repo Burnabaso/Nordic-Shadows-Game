@@ -3,13 +3,219 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <link rel="stylesheet" href="/styles/base/layout.css">
-    <link rel="stylesheet" href="/styles/base/utilities.css">
+    <meta name="author" content="Ibrahim Itani,Yasmina Maddah, Mohammad Fakih">
+    
     <link rel="stylesheet" href="/styles/base/colors.css">
-    <link rel="stylesheet" href="/styles/index.css">
-    <title>Document</title>
+    <link rel="stylesheet" href="/styles/sections/i-section.css">
+    <link rel="stylesheet" href="/styles/sections/Y-section.css">
+    <link rel="stylesheet" href="/styles/sections/M-section.css">
+    <link rel="stylesheet" href="/styles/base/utlities.css">
+    <link rel="stylesheet" href="/styles/base/layout.css">
+
+   
+
+    <link rel="shortcut icon" href="/assets/favicon.ico" type="image/x-icon">
+    <title>Nordic Shadows</title>
 </head>
 <body>
+    <nav class="black-bg">
+        <div class="nav-titles white-bg">
+          <a href="#controls" class="brown-txt">controls</a>
+          <a href="#lore" class="brown-txt">lore</a>
+          <a href="#characters" class="brown-txt">characters</a>
+      </div>
+      <div class="nav-logo ">
+          <img src="/assets/logo.svg" alt="logo" />
+      </div>
+      <div class="nav-titles white-bg">
+          <a href="#team" class="brown-txt">team</a>
+          <a href="#reach-us" class="brown-txt">reach us</a>
+          <button>
+              <a href="/game/pages/player-setup/main.html">play</a>
+          </button>
+      </div>
+      <div class="hamburger-menu" id="mobile-menu">
+          <div class="burger-icon"><img src="/assets/informative-website/nav-bar/burger-menu.svg" alt=""></div>
+          <div class="side-menu hidden" id="mobile-menu-content">
+              <a href="#controls" class="brown-txt">controls</a>
+              <a href="#lore" class="brown-txt">lore</a>
+              <a href="#characters" class="brown-txt">characters</a>
+              <a href="#team" class="brown-txt">team</a>
+              <a href="#reach-us" class="brown-txt">reach us</a>
+          </div>
+    </div>
+  </nav>
+  <div class="hero-section">
+      <div>
+          <h1>nordic</h1>
+          <h1>shadows</h1>
+          <button><a href="/game/pages/player-setup/main.html">launch battle!</a></button>
+      </div>
+  </div>
+
+  <div class="main-section white-txt" id="controls">
+      <div class=" wood-container">
+        <h1>How To Play</h1>
+        <div class="main-tutorial-container">
+            <div class="tutorial-section">
+                <div class="game-map-img">
+                    <img  src="/assets/informative-website/how-to-play/game-map.png">
+                </div>
+                <div class="key-section">
+                    <p>Find The Keys Throughout The Map</p>
+                    <div class="key-img">
+                        <img  src="/assets/informative-website/how-to-play/keys.jpg">
+                    </div>
+                </div>
+                <div class="avoid-demon-section">
+                    <div class="dragon-img">
+                        <img  src="/assets/informative-website/how-to-play/dragon.png">
+                    </div>
+                    <p>Avoid the demons!</p>
+                </div>
+            </div>
+            <div class="tutorial-section">
+                <div class="keyboard-knight">
+                    <div class="knight-kb-img">
+                        <img  src="/assets/informative-website/how-to-play/arrow-keys.png">
+                        <img  src="/assets/informative-website/how-to-play/knight.png">
+                    </div>
+                    <p>Use the arrow keys to move your character</p>
+                </div>
+                <div class="golden-section">
+                    <img src="/assets/informative-website/how-to-play/Golden-ingot.png">
+                    <p>Collect Gold to Increase Your Points</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<div class="separator"></div>
+<div class="main-section backstory-section" id="lore">
+    <div class="transparent-container">
+        <h1>BACKSTORY</h1>
+        
+        <div class="maze-image">
+            <img src=".././Game/Assets/maps/Character-maze.png" alt="Maze Image">
+        </div>
+        
+        <div class="backstory-text">
+            <p>
+                IN THE SHADOWED REALM OF ELDORIA, THERE LIES A FABLED LABYRINTH, CRAFTED BY ANCIENT MAGIC. AT ITS CENTER RESTS
+                THE HEART-STONE, A POWERFUL RELIC GRANTING A SINGLE WISH TO ANY WHO REACH IT. COUNTLESS SOULS HAVE ENTERED ITS
+                TWISTED HALLS, FACING SPECTRAL GUARDIANS AND ILLUSIONS, BUT NONE HAVE RETURNED. NOW, UNDER A MOONLIT SKY, A
+                LONE ADVENTURER STEPS FORWARD, TORCH IN HAND, DETERMINED TO FIND THE HEART-STONE BEFORE THE LABYRINTH
+                CLAIMS ANOTHER SOUL.
+            </p>
+        </div>
+    </div>
+</div>
+<div class="separator"></div>
+
+<div class="main-section" id="characters">
+    <div class="transparent-container">
+        <h1>CHARACTERS</h1>
+        <div class="character-cards">
+            <!-- Character Card 1 -->
+            <div class="character-card">
+                <div class="character-image-bg">
+                    <img src="/assets/informative-website/charachter-lore/knight.png" alt="Thorin, the Stout Dwarf Warrior">
+                </div>
+                <div class="character-info">
+                    <p>THORIN, THE STOUT DWARF WARRIOR</p>
+                </div>
+            </div>
     
+            <!-- Character Card 2 -->
+            <div class="character-card">
+                <div class="character-image-bg">
+                  <img src="/assets/informative-website/charachter-lore/mage.png" alt="Seraphine, the Mystik Sorceress">
+                </div>
+                <div class="character-info">
+                    <p>SERAPHINE, THE MYSTIK SORCERESS</p>
+                </div>
+            </div>
+    
+            <!-- Character Card 3 -->
+            <div class="character-card">
+                <div class="character-image-bg">
+                   <img src="/assets/informative-website/charachter-lore/assassin.png" alt="Lyra, the Elven Assassin">
+                </div>
+                <div class="character-info">
+                    <p>LYRA, THE ELVEN ASSASSIN</p>
+                </div>
+            </div>
+    
+            <!-- Character Card 4 -->
+            <div class="character-card">
+                <div class="character-image-bg">
+                   <img src="/assets/informative-website/charachter-lore/dragon.png" alt="Malakar, the Shadow Dragon">
+                </div>
+                <div class="character-info">
+                    <p>MALAKAR, THE SHADOW DRAGON</p>
+                </div>
+            </div>
+        </div>
+
+    </div>
+</div>
+<div class="separator"></div>
+
+
+<div class="main-section" id="team">
+    <div class="wood-container">
+        <h1>the founding fathers</h1>
+        <div class="team-card-container">
+            <div class="team-card">
+                <div class="team-image" >
+                    <img src="/assets/informative-website/team-section/mohammad.jpg" alt="mohamamd" >
+                </div>
+                <div class="team-content-card">
+                    <p>mohammad fakih</p>
+                    <p>Future sef graduate</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="/assets/informative-website/team-section/yasmina.jpg" alt="yasmina">
+                </div>
+                <div class="team-content-card">
+                    <p>yasmina maddah</p>
+                    <p>passionate</p>
+                </div>
+            </div>
+            <div class="team-card">
+                <div class="team-image">
+                    <img src="/assets/informative-website/team-section/ibrahim.jpeg" alt="Ibrahim">
+                </div>
+                <div class="team-content-card">
+                    <p>ibrahim itani</p>
+                    <p>runs on coffee</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+<footer class="footer-section white-txt" id="reach-us">
+    <div class="footer-content">
+        <div class="made-with">
+            <div class="footer-logo">
+                <img src="../Assets/logo.svg">
+            </div>
+            Made using Phaser 3
+        </div>
+        <div class="contact-us">
+            <div>Contact us!</div>
+            <div>ib.itani01@gmail.com</div>
+            <div>YasminaMaddah@gmail.com</div>
+            <div>mohammadfakih025@gmail.com</div>
+        </div>
+    </div>
+ 
+</footer>
+  <div class="scroll-top" id="logo-scroll-top">
+    <img src="/assets/informative-website/scroll-top.svg" alt="scroll top">
+</div>
+<script src="/scripts/dom.js" defer></script>
 </body>
 </html>

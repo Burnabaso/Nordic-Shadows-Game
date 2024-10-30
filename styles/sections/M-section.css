@@ -1,0 +1,130 @@
+
+.main-tutorial-container{
+    display: flex;
+    flex-wrap: wrap;
+    gap: 50px;
+    justify-content: space-around;
+    margin-inline: auto;
+   
+}
+.tutorial-section {
+    display: flex;
+    flex-direction: column;
+    gap: 31px;
+    align-items: center;
+    justify-content: space-evenly;
+    width: 40%;
+    min-width: 518px ;
+}
+
+.game-map-img {
+    max-width: 400px;
+}
+
+.key-section {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    width: 70%;
+}
+
+.key-img {
+    width: 100px;
+}
+.key-img >img{
+    border-radius: 50%;
+}
+
+.avoid_demon_section {
+    display: flex;
+}
+
+
+
+.keyboard-knight {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 18px;
+    width: 80%;
+}
+
+
+.knight-kb-img {
+    width: 200px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 30px;
+}
+.keyboard-knight>p{
+    text-align: center;
+}
+
+
+.golden-section {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.golden-section img {
+    width: 100px;
+}
+
+.golden-section p {
+    text-align: center;
+}
+
+
+
+.meet-us-text{
+    width: 20%;
+    margin-right: 100px;
+}
+.map-section img{
+    width: 50%;
+    border-radius: 24px;
+}
+
+.footer-section {
+    display: flex;
+    position: relative;
+    height: 500px;
+}
+.footer-content{
+    display: flex;
+    background-repeat: no-repeat;
+    background-size: cover;
+    width: 100%;
+    justify-content: space-between;
+    padding: 1em;
+    font-size: 40px;
+    background-image: url("/game/assets/setup-page/btn-bg.jpg");
+    min-height: 300px;
+    position: absolute;
+    bottom: 0;
+    flex-wrap: wrap;
+}
+
+.made-with{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+.footer-logo{
+    width: 300px;
+}
+
+.contact-us{
+    display: flex;
+    flex-direction: column;
+    border-radius: 24px;
+    text-align: center;
+    justify-content: space-between;
+    align-items: center;
+    padding: 1em;
+    background-color: #FABC3F;
+}
+
+

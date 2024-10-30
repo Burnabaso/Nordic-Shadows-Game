@@ -9,7 +9,7 @@ class FinishScreen extends Phaser.Scene {
 
     create() {
         // TODO: replace with designed image
-        let map=this.add.image(350, 350, 'mapFinish');
+        let map=this.add.image(350, 400, 'mapFinish');
         // map.setScale(this.cameras.main.width / map.width);
 
        
