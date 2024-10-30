@@ -200,6 +200,7 @@
     }
 
     .tutorial-section {
+        align-items: center;
         width: 100%;
         margin-bottom: 20px;
     }
