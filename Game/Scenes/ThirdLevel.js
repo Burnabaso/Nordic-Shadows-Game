@@ -1,6 +1,7 @@
 class ThirdLevel extends Phaser.Scene {
     constructor() {
         super({ key: 'ThirdLevel' });
+        this.collectedKeys = 0;
     }
 
     preload() {
@@ -8,12 +9,16 @@ class ThirdLevel extends Phaser.Scene {
     }
 
     create() {
-        let map=this.add.image(350, 400, 'mapLevel3');
+        this.collectedKeys = 0;
+        let map=this.add.image(350, 400, 'mapLevel1');
         map.setScale(this.cameras.main.width / map.width);
-
-        dragons.length = 0;
+        let gate=this.physics.add.staticImage(690, 400, 'gate');
+        gate.setSize(65,100);
+        gate.setScale(0.18);
+        this.gate=gate;
+        
         createPlayer.call(this);
-        //dragon creation
+        this.physics.add.collider(this.player, gate);
         dragons.push(new Dragon(this, 380, 105, [
             { x: 390, y: 90 },
             { x: 645, y: 90 }
@@ -28,8 +33,8 @@ class ThirdLevel extends Phaser.Scene {
             { x: 125, y: 305 }
         ], 120));
         dragons.push(new Dragon(this, 105, 690, [
-            { x: 110, y: 685 },
-            { x: 645, y: 685 }
+            { x: 110, y: 690 },
+            { x: 645, y: 690 }
         ], 80));
         dragons.push(new Dragon(this, 600, 410, [
             { x: 605, y: 410 },

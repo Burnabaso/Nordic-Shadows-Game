@@ -32,7 +32,7 @@ class Dragon {
       const isFacingPlayerY=   
       (this.dragon.body.velocity.y < 0 && player.y < this.dragon.y) ||
       (this.dragon.body.velocity.y > 0 && player.y > this.dragon.y);
-    if (!this.isAttacking && (playerDistanceY < 50 && playerDistanceX < 20 &&  isFacingPlayerY) || (playerDistanceX < 50 && playerDistanceY < 20 &&  isFacingPlayerX)) {
+    if (!this.isAttacking && (playerDistanceY < 50 && playerDistanceX < 15 &&  isFacingPlayerY) || (playerDistanceX < 50 && playerDistanceY < 10 &&  isFacingPlayerX)) {
       this.attack(player);
       return;
     }

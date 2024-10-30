@@ -31,7 +31,6 @@ const dragons = [];
 //player info
 var attacked = false;
 
-
 //character selection
 var characterName = localStorage.getItem("chosenCharacter");
 
@@ -158,6 +157,7 @@ function preloadAssets() {
     "../Game/Assets/dragon/dragon.png",
     "../Game/Assets/dragon/dragon.json"
   );
+  this.load.image('gate',"../Game/Assets/gate.svg")
   // for now fake maze
   this.load.image('mapLevel1',"../Game/Assets/maps/level1.jpg");
   this.load.image('mapLevel2',"../Game/Assets/maps/level2.jpg");
