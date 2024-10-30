@@ -12,10 +12,11 @@ nav{
     padding-inline: 50px;
     padding-top: 10px;
     font-size: 20px;
-    position: sticky;
+    position: fixed;
     top: 0;
+    right: 0;
+    left: 0;
     z-index: 2;
-    overflow: hidden;
 }
 .nav-logo{
     width: 80px;
