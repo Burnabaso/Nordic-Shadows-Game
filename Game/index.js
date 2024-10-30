@@ -159,10 +159,16 @@ function preloadAssets() {
   );
   this.load.image('gate',"/Game/Assets/gate.svg")
   // for now fake maze
-  this.load.image('mapLevel1',"/Game/Assets/maps/level1.jpg");
-  this.load.image('mapLevel2',"/Game/Assets/maps/level2.jpg");
-  this.load.image('mapLevel3',"/Game/Assets/maps/level3.jpg");
-  this.load.image('mapFinish',"/Game/Assets/maps/finishScreen.svg");
+ this.load.tilemapTiledJSON("mapLevel1", "../Game/Assets/mazes/mapLevel1.JSON")
+
+ this.load.image("TXTilesetGrass", "../Game/Assets/TileSets/TXTilesetGrass.png");
+ this.load.image("Wall-Dirt", "../Game/Assets/TileSets/Wall-Dirt.png");
+ this.load.image("TXPlant", "../Game/Assets/TileSets/TXPlant.png");
+ this.load.image("key_big", "../Game/Assets/TileSets/key_big.png");
+ this.load.image("GoldenIngot", "../Game/Assets/TileSets/GoldenIngot.png");
+
+ this.load.image('mapFinish',"/Game/Assets/maps/finishScreen.svg");
+
 
 }
 
