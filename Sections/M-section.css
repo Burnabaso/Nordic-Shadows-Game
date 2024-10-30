@@ -211,25 +211,6 @@
         text-align: center;
     }
 
-    .map-section {
-        justify-content: center;
-        align-items: center;
-        width: 100%;
-        margin: 10px;
-        padding: 15px;
-        font-size: 32px;
-    }
-    .meet-us-text{
-        width: 100%;
-        text-align: center;
-        margin: 0;
-        padding: 0;
-    }
-
-    .map-section img {
-        width: 100%;
-    }
-
     .footer-section, .contact-us {
         font-size: 36px;
         align-items: center;
