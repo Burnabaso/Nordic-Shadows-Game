@@ -17,24 +17,27 @@ class FirstLevel extends Phaser.Scene {
         const keyTileset = map.addTilesetImage("key_big", "key_big.png");
         const ingotTileset = map.addTilesetImage("GoldenIngot", "GoldenIngot");
 
-        const mazeFloor = map.createLayer("mazeFloor", [grassTileset], 0, 0);
-        const mazeWalls = map.createLayer("mazeWalls", [wallTileset], 0, 0);
-        const mazeDecoration = map.createLayer("mazeDecoration", [plantTileset], 0, 0);
+        const scale = 0.73;
+
+
+        const mazeFloor = map.createLayer("mazeFloor", [grassTileset], 0, 0).setScale(scale);
+        const mazeWalls = map.createLayer("mazeWalls", [wallTileset], 0, 0).setScale(scale);
+        const mazeDecoration = map.createLayer("mazeDecoration", [plantTileset], 0, 0).setScale(scale);
         
         const keyLayer = map.getObjectLayer("mazeKey");
         const gemLayer = map.getObjectLayer("mazeGems");
 
         if (keyLayer) {
             keyLayer.objects.forEach(key => {
-                const keySprite = this.physics.add.sprite(key.x, key.y, "key_big");
-                keySprite.setOrigin(0, 1); 
+                const keySprite = this.physics.add.sprite(key.x * scale, key.y * scale, "key_big");
+                keySprite.setOrigin(0, 1).setScale(scale); 
             });
         }
     
         if (gemLayer) {
             gemLayer.objects.forEach(gem => {
-                const gemSprite = this.physics.add.sprite(gem.x, gem.y, "GoldenIngot");
-                gemSprite.setOrigin(0, 1); 
+                const gemSprite = this.physics.add.sprite(gem.x * scale, gem.y * scale, "GoldenIngot");
+                gemSprite.setOrigin(0, 1).setScale(scale); 
             });
         }
         
