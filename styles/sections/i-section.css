@@ -101,4 +101,10 @@
     align-items: center;
     justify-content: center;
     font-size: 36px;
+    animation: button-hover 0.7s infinite ease;
+
+}
+.hero-section button:hover{
+    animation: none;
+
 }
