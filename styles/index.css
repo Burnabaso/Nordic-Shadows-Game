@@ -3,7 +3,11 @@
 }
 
 .character-cards {
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
     gap: 20px;
+    flex-wrap: wrap; /* This allows the cards to wrap to the next line if screen size is smaller */
 }
 
 .character-card {
@@ -32,4 +36,14 @@
     font-family: 'norse';
     font-size: 0.9em;
     color: #6A3F07;
+}
+
+.characters-section {
+    text-align: center; /* Center-aligns all content in the section */
+}
+
+.character-title {
+    font-family: 'viking';
+    color: #222651;
+    margin: 20px 0; /* Adds spacing above and below the title */
 }
