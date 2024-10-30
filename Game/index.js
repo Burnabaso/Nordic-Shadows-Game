@@ -75,10 +75,10 @@ function createPlayer() {
   this.player.health = playerHealth;
   this.player.setScale(0.5);
   // the size in phaser for collision
-  this.player.body.setSize(15, 5);
+  this.player.body.setSize(20, 10);
   this.player.body.setOffset(
-    this.player.width / 2 - 10,
-    this.player.height / 2 + 15
+    this.player.width / 2 - 20,
+    this.player.height / 2 + 10
   );
 }
 
@@ -159,13 +159,13 @@ function preloadAssets() {
   );
   this.load.image('gate',"/Game/Assets/gate.svg")
   // for now fake maze
- this.load.tilemapTiledJSON("mapLevel1", "../Game/Assets/mazes/mapLevel1.JSON")
+ this.load.tilemapTiledJSON("mapLevel1", "/Game/Assets/mazes/mapLevel1.JSON")
 
- this.load.image("TXTilesetGrass", "../Game/Assets/TileSets/TXTilesetGrass.png");
- this.load.image("Wall-Dirt", "../Game/Assets/TileSets/Wall-Dirt.png");
- this.load.image("TXPlant", "../Game/Assets/TileSets/TXPlant.png");
- this.load.image("key_big", "../Game/Assets/TileSets/key_big.png");
- this.load.image("GoldenIngot", "../Game/Assets/TileSets/GoldenIngot.png");
+ this.load.image("TXTilesetGrass", "/Game/Assets/TileSets/TXTilesetGrass.png");
+ this.load.image("Wall-Dirt", "/Game/Assets/TileSets/Wall-Dirt.png");
+ this.load.image("TXPlant", "/Game/Assets/TileSets/TXPlant.png");
+ this.load.image("key_big", "/Game/Assets/TileSets/key_big.png");
+ this.load.image("GoldenIngot", "/Game/Assets/TileSets/GoldenIngot.png");
 
  this.load.image('mapFinish',"/Game/Assets/maps/finishScreen.svg");
 
