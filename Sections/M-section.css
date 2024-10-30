@@ -231,6 +231,12 @@
 
     .footer-section, .contact-us {
         font-size: 36px;
+        align-items: center;
+        justify-content: center;
+        height: auto;
+    }
+    .made-with{
+        align-items: center;
     }
 
     .contact-us div {
@@ -238,7 +244,9 @@
     }
 
     .contact-us {
-        width: fit-content;
+        width: 100%;
+        margin: 0;
+        margin-bottom: 20px;
     }
     .contact-us div{
         font-size: 32px;
