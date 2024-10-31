@@ -25,7 +25,8 @@ var decreaseHealth;
 window.onbeforeunload = function () {
   localStorage.removeItem("levelNumber")
 };
-
+let dead=false;
+let isGameOver = false;
 const dragons = [];
 
 //player info
@@ -85,7 +86,7 @@ function createPlayer() {
 function updatePlayer() {
   playername.x = this.player.body.x + 5 - playername.width / 2;
   playername.y = this.player.body.y - 40;
-  if (!attacked) {
+  if (!attacked&&!dead) {
     if (cursors.left.isDown) {
       this.player.setVelocityX(-playerSpeed);
       this.player.setFlipX(true);

@@ -20,9 +20,8 @@ class FirstLevel extends Phaser.Scene {
         const ingotTileset = map.addTilesetImage("GoldenIngot", "GoldenIngot");
     
         const scale = 0.73;
-        const yOffset = 50; // Offset to create the top gap
+        const yOffset = 50;
     
-        // Set the Y position of layers to yOffset
         const mazeFloor = map.createLayer("mazeFloor", [grassTileset], 0, yOffset).setScale(scale);
         const mazeWalls = map.createLayer("mazeWalls", [wallTileset], 0, yOffset).setScale(scale);
         const mazeDecoration = map.createLayer("mazeDecoration", [plantTileset], 0, yOffset).setScale(scale);
@@ -47,7 +46,6 @@ class FirstLevel extends Phaser.Scene {
         mazeWalls.setCollisionByExclusion([-1]);
         
     
-        // Adjust gate position with the offset
         let gate = this.physics.add.staticImage(690, 400, 'gate');
         gate.setSize(65, 100);
         gate.setScale(0.18);
@@ -56,7 +54,6 @@ class FirstLevel extends Phaser.Scene {
         createPlayer.call(this);
         this.physics.add.collider(this.player, gate);
     
-        // Dragon creation, adjust starting positions by adding yOffset
         dragons.push(new Dragon(this, 400, 400 + yOffset, [
             { x: 500, y: 400 + yOffset },
             { x: 400, y: 400 + yOffset }
@@ -75,7 +72,7 @@ class FirstLevel extends Phaser.Scene {
     
 
     update() {
-        updateHealth();
+        updateHealth(this,this.player);
         updatePlayer.call(this);
         for (const dragon of dragons) {
             dragon.update(this.player);
