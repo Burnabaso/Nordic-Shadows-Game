@@ -31,7 +31,7 @@ function updateHealth(scene,player){
         scene.time.delayedCall(1500, () => {
             dead=false;
             scene.physics.pause();
-            scene.scene.start("FinishScreen");
+            scene.scene.start("DeathScene");
         });
     }
     HealthText.setText(`Health:  ${playerHealth}`);

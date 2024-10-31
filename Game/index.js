@@ -50,7 +50,7 @@ var config = {
       debug: false,
     },
   },
-  scene: [FirstLevel, SecondLevel, ThirdLevel, FinishScreen],
+  scene: [FirstLevel, SecondLevel, ThirdLevel, FinishScreen, DeathScene],
 };
 
 if (characterName == "knight") {
@@ -79,7 +79,7 @@ function createPlayer() {
   this.player.health = playerHealth;
   this.player.setScale(0.5);
   // the size in phaser for collision
-  this.player.body.setSize(20, 10);
+  this.player.body.setSize(15, 10);
   this.player.body.setOffset(
     this.player.width / 2 - 20,
     this.player.height / 2 + 10
@@ -168,6 +168,8 @@ function preloadAssets() {
   this.load.image("key_big", "/Game/Assets/TileSets/key_big.png");
   this.load.image("GoldenIngot", "/Game/Assets/TileSets/GoldenIngot.png");
 
+  
+  this.load.image("deathScene", "/Game/Assets/maps/deathScene.svg");
   this.load.image("mapFinish", "/Game/Assets/maps/finishScreen.svg");
 }
 
