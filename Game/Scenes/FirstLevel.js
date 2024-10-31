@@ -23,7 +23,6 @@ class FirstLevel extends Phaser.Scene {
         const ingotTileset = map.addTilesetImage("GoldenIngot", "GoldenIngot");
 
         const scale = 0.73;
-        const yOffset = 16; // Offset to align the gem's vertical position if needed
 
         map.createLayer("mazeFloor", [grassTileset], 0, 0).setScale(scale);
         const mazeWalls = map.createLayer("mazeWalls", [wallTileset], 0, 0).setScale(scale);

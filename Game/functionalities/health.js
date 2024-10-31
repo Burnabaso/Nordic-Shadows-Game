@@ -22,8 +22,10 @@ function updateHealth(){
     if(decreaseHealth){
             playerHealth = playerHealth - 25;
     }
-    if(playerHealth===0){
+    if(playerHealth<=0){
         // TODO: YASMINA's part gameover screen
+        playerHealth = 0;
+        console.log("died")
     }
     HealthText.setText(`Health:  ${playerHealth}`);
 
