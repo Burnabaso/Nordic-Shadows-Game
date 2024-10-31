@@ -1,8 +1,8 @@
 class FirstLevel extends Phaser.Scene {
     constructor() {
         super({ key: 'FirstLevel' });
-        this.collectedKeys = 0; // Initialize collected keys count
-        this.collectedGems = 0; // Initialize collected gems count
+        this.collectedKeys = 0; 
+        this.collectedGems = 0; 
         this.keySprites = [];
         this.gemSprites = [];
     }
@@ -30,11 +30,10 @@ class FirstLevel extends Phaser.Scene {
         const ingotTileset = map.addTilesetImage("GoldenIngot", "GoldenIngot");
     
         const scale = 0.73;
-        const yOffset = 50;
     
-        const mazeFloor = map.createLayer("mazeFloor", [grassTileset], 0, yOffset).setScale(scale);
-        const mazeWalls = map.createLayer("mazeWalls", [wallTileset], 0, yOffset).setScale(scale);
-        const mazeDecoration = map.createLayer("mazeDecoration", [plantTileset], 0, yOffset).setScale(scale);
+        const mazeFloor = map.createLayer("mazeFloor", [grassTileset], 0).setScale(scale);
+        const mazeWalls = map.createLayer("mazeWalls", [wallTileset], 0).setScale(scale);
+        const mazeDecoration = map.createLayer("mazeDecoration", [plantTileset], 0).setScale(scale);
     
         const keyLayer = map.getObjectLayer("mazeKey");
         const gemLayer = map.getObjectLayer("mazeGems");
@@ -45,7 +44,7 @@ class FirstLevel extends Phaser.Scene {
         // Create and set up keys
         if (keyLayer) {
             keyLayer.objects.forEach(key => {
-                const keySprite = this.physics.add.sprite(key.x * scale, (key.y * scale) + yOffset, "key_big");
+                const keySprite = this.physics.add.sprite(key.x * scale, (key.y * scale) , "key_big");
                 keySprite.setOrigin(0, 1).setScale(scale);
                 this.keySprites.push(keySprite);
 
@@ -60,7 +59,7 @@ class FirstLevel extends Phaser.Scene {
         // Create and set up gems
         if (gemLayer) {
             gemLayer.objects.forEach(gem => {
-                const gemSprite = this.physics.add.sprite(gem.x * scale, (gem.y * scale) + yOffset, "GoldenIngot");
+                const gemSprite = this.physics.add.sprite(gem.x * scale, (gem.y * scale) , "GoldenIngot");
                 gemSprite.setOrigin(0, 1).setScale(scale);
                 this.gemSprites.push(gemSprite);
 
@@ -74,29 +73,29 @@ class FirstLevel extends Phaser.Scene {
     
         mazeWalls.setCollisionByExclusion([-1]);
 
-        let gate = this.physics.add.staticImage(690, 400, 'gate');
+        let gate = this.physics.add.staticImage(690, 350, 'gate');
         gate.setSize(65, 100);
         gate.setScale(0.18);
         this.gate = gate;
 
         this.physics.add.collider(this.player, gate);
 
-        dragons.push(new Dragon(this, 430, 105, [
-            { x: 430, y: 100 },
-            { x: 630, y: 100 }
+        dragons.push(new Dragon(this, 430, 50, [
+            { x: 430, y: 50 },
+            { x: 630, y: 50 }
         ], 120));
 
-        dragons.push(new Dragon(this, 500, 190, [
-            { x: 500, y: 190 },
-            { x: 630, y: 190 }
+        dragons.push(new Dragon(this, 500, 140, [
+            { x: 500, y: 140 },
+            { x: 630, y: 140 }
         ], 120));
-        dragons.push(new Dragon(this, 230, 280, [
-            { x: 230, y: 280 },
-            { x: 230, y: 500 }
+        dragons.push(new Dragon(this, 230, 230, [
+            { x: 230, y: 230 },
+            { x: 230, y: 450 }
         ], 80));
-        dragons.push(new Dragon(this, 350, 550, [
-            { x: 350, y: 550 },
-            { x: 350, y: 450 }
+        dragons.push(new Dragon(this, 350, 500, [
+            { x: 350, y: 500 },
+            { x: 350, y: 400 }
         ], 140));
     
         createAnimations(this, characterName);

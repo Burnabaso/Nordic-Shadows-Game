@@ -2,6 +2,9 @@ class SecondLevel extends Phaser.Scene {
     constructor() {
         super({ key: 'SecondLevel' });       
         this.collectedKeys = 0;
+        this.collectedGems = 0; 
+        this.keySprites = [];
+        this.gemSprites = [];
     }
 
     preload() {
@@ -16,74 +19,108 @@ class SecondLevel extends Phaser.Scene {
     }
 
     create() {
-
         this.collectedKeys = 0;
-
+        this.collectedGems = 0;
+    
         const map = this.make.tilemap({ key: "mapLevel2" });
+        const scale = 0.73;
     
         const grassTileset = map.addTilesetImage("Floor-Grass", "Floor-Grass");
         const wallTileset = map.addTilesetImage("Floor-Sand", "Floor-Sand");
         const plantTileset = map.addTilesetImage("TXProps", "TXProps");
         const keyTileset = map.addTilesetImage("key_big", "key_big");
         const ingotTileset = map.addTilesetImage("GoldenIngot", "GoldenIngot");
-
-        const scale = 0.73;
-
-
-        const mazeFloor = map.createLayer("mazeFloor", [grassTileset], 0, 0).setScale(scale);
+    
+        map.createLayer("mazeFloor", [grassTileset], 0, 0).setScale(scale);
         const mazeWalls = map.createLayer("mazeWalls", [wallTileset], 0, 0).setScale(scale);
-        const mazeDecorations = map.createLayer("mazeDecorations", [plantTileset], 0, 0).setScale(scale);
-        
+        map.createLayer("mazeDecorations", [plantTileset], 0, 0).setScale(scale);
+    
+        // Initialize player first
+        createPlayer.call(this);
+    
+        // Initialize keys
         const keyLayer = map.getObjectLayer("mazeKeys");
-        const gemLayer = map.getObjectLayer("mazeGems");
-
         if (keyLayer) {
             keyLayer.objects.forEach(key => {
                 const keySprite = this.physics.add.sprite(key.x * scale, key.y * scale, "key_big");
-                keySprite.setOrigin(0, 1).setScale(scale); 
+                keySprite.setOrigin(0, 1).setScale(scale);
+                this.keySprites.push(keySprite);
+    
+                // Add collider only after player is defined
+                this.physics.add.collider(this.player, keySprite, () => {
+                    if (keySprite.active) this.collectKey(keySprite);
+                }, null, this);
             });
         }
     
+        // Initialize gems
+        const gemLayer = map.getObjectLayer("mazeGems");
         if (gemLayer) {
             gemLayer.objects.forEach(gem => {
                 const gemSprite = this.physics.add.sprite(gem.x * scale, gem.y * scale, "GoldenIngot");
-                gemSprite.setOrigin(0, 1).setScale(scale); 
+                gemSprite.setOrigin(0, 1).setScale(scale);
+                this.gemSprites.push(gemSprite);
+    
+                // Add collider only after player is defined
+                this.physics.add.collider(this.player, gemSprite, () => {
+                    if (gemSprite.active) this.collectGem(gemSprite);
+                }, null, this);
             });
         }
-
+    
         mazeWalls.setCollisionByExclusion([-1]);
         
-        let gate=this.physics.add.staticImage(690, 400, 'gate');
-        gate.setSize(65,100);
-        gate.setScale(0.18);
-        this.gate=gate;
-
-        dragons.length = 0;
-
-        createPlayer.call(this);
-
+        // Setup gate after initializing colliders
+        let gate = this.physics.add.staticImage(690, 350, 'gate').setSize(65, 100).setScale(0.18);
+        this.gate = gate;
         this.physics.add.collider(this.player, gate);
-
-        //dragon creation
+    
+        createAnimations(this, characterName);
+    
+        this.physics.add.collider(this.player, mazeWalls);
+    
+        // Dragon creation
+        dragons.length = 0;
         dragons.push(new Dragon(this, 400, 400, [
             { x: 500, y: 400 },
             { x: 400, y: 400 }
         ], 120));
-
-        createAnimations(this, characterName);
-
-        this.physics.add.collider(this.player, mazeWalls);
-
-        
+    
         cursors = this.input.keyboard.createCursorKeys();
         handleCountdown(this);
         handleScore(this);
-        handleHealth(this)
+        handleHealth(this);
         updateScore();
+    }
+    
+     // Function to handle key collection
+     collectKey(keySprite) {
+        if (keySprite.active) {
+            keySprite.disableBody(true, true);
+            this.collectedKeys += 1;
+            updateScore(); // Update the score or UI here
+            console.log(`Keys collected: ${this.collectedKeys}`);
+            
+            // Destroy the gate if collected keys reach 1
+            if (this.collectedKeys === 2 && this.gate) {
+                this.gate.destroy();
+                console.log('Gate destroyed');
+            }
+        }
+    }
+
+    // Function to handle gem collection
+    collectGem(gemSprite) {
+        if (gemSprite.active) {
+            gemSprite.disableBody(true, true);
+            this.collectedGems += 1;
+            updateScore(true); // Update the score or UI here
+            console.log(`Gems collected: ${this.collectedGems}`);
+        }
     }
 
     update() {
-        updateHealth();
+        updateHealth(this,this.player);
         updatePlayer.call(this);
         for (const dragon of dragons) {
             dragon.update(this.player);
