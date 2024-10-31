@@ -115,7 +115,7 @@ function updatePlayer() {
     if (this.player.x > 670 && this.player.y < 450 && this.player.y > 375) {
       currentLevel++;
     if (currentLevel==2){
-      this.scene.start("ThirdLevel");
+      this.scene.start("SecondLevel");
       localStorage.setItem("levelNumber","2")
     }
     else if (currentLevel==3){

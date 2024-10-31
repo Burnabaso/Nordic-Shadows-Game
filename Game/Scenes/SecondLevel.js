@@ -17,30 +17,22 @@ class SecondLevel extends Phaser.Scene {
 
     create() {
 
-        const map = this.make.tilemap({ key: "mapLevel2" });
+        this.collectedKeys = 0;
 
+        const map = this.make.tilemap({ key: "mapLevel2" });
+    
         const grassTileset = map.addTilesetImage("Floor-Grass", "Floor-Grass");
         const wallTileset = map.addTilesetImage("Floor-Sand", "Floor-Sand");
         const plantTileset = map.addTilesetImage("TXProps", "TXProps");
         const keyTileset = map.addTilesetImage("key_big", "key_big");
         const ingotTileset = map.addTilesetImage("GoldenIngot", "GoldenIngot");
 
-        const mazeFloor = map.createLayer("mazeFloor", [grassTileset], 0, 0);
-        const mazeWalls = map.createLayer("mazeWalls", [wallTileset], 0, 0);
-        const mazeDecorations = map.createLayer("mazeDecorations", [plantTileset], 0, 0);
+        const scale = 0.73;
 
-        const viewportWidth = 700;
-        const viewportHeight = 750;
-        const topPadding = 50;
 
-       const scaleX = viewportWidth / map.widthInPixels;
-       const scaleY = (viewportHeight - topPadding) / map.heightInPixels;
-       const scale = Math.min(scaleX, scaleY);
-
-        this.cameras.main.setZoom(scale);
-        this.cameras.main.centerOn(map.widthInPixels / 2, map.heightInPixels / 2);
-
-        this.cameras.main.scrollY -= topPadding / scale;
+        const mazeFloor = map.createLayer("mazeFloor", [grassTileset], 0, 0).setScale(scale);
+        const mazeWalls = map.createLayer("mazeWalls", [wallTileset], 0, 0).setScale(scale);
+        const mazeDecorations = map.createLayer("mazeDecorations", [plantTileset], 0, 0).setScale(scale);
         
         const keyLayer = map.getObjectLayer("mazeKeys");
         const gemLayer = map.getObjectLayer("mazeGems");
@@ -50,8 +42,6 @@ class SecondLevel extends Phaser.Scene {
                 const keySprite = this.physics.add.sprite(key.x * scale, key.y * scale, "key_big");
                 keySprite.setOrigin(0, 1).setScale(scale); 
             });
-        } else {
-            console.warn("Key layer not found. Verify the layer name in Tiled.");
         }
     
         if (gemLayer) {
@@ -59,10 +49,8 @@ class SecondLevel extends Phaser.Scene {
                 const gemSprite = this.physics.add.sprite(gem.x * scale, gem.y * scale, "GoldenIngot");
                 gemSprite.setOrigin(0, 1).setScale(scale); 
             });
-        } else {
-            console.warn("Gem layer not found. Verify the layer name in Tiled.");
         }
-    
+
         mazeWalls.setCollisionByExclusion([-1]);
         
         let gate=this.physics.add.staticImage(690, 400, 'gate');
@@ -70,9 +58,12 @@ class SecondLevel extends Phaser.Scene {
         gate.setScale(0.18);
         this.gate=gate;
 
-        
+        dragons.length = 0;
+
         createPlayer.call(this);
-        this.physics.add.collider(this.player, gate);
+
+        // this.physics.add.collider(this.player, gate);
+
         //dragon creation
         dragons.push(new Dragon(this, 400, 400, [
             { x: 500, y: 400 },
