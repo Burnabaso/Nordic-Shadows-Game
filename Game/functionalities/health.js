@@ -16,16 +16,23 @@ function handleHealth(scene,finish) {
         });
     }
 }
-
      
-function updateHealth(){
+function updateHealth(scene,player){
     if(decreaseHealth){
             playerHealth = playerHealth - 25;
     }
-    if(playerHealth<=0){
-        // TODO: YASMINA's part gameover screen
-        playerHealth = 0;
-        console.log("died")
+    if (playerHealth <= 25 && !isGameOver && attacked) {
+        dead=true;
+        isGameOver = true;
+        scene.input.keyboard.enabled = false;
+        scene.physics.pause();
+        player.anims.stop();
+        player.anims.play('death', true);  
+        scene.time.delayedCall(1500, () => {
+            dead=false;
+            scene.physics.pause();
+            scene.scene.start("DeathScene");
+        });
     }
     HealthText.setText(`Health:  ${playerHealth}`);
 
