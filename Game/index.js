@@ -1,10 +1,13 @@
-var characterName=localStorage.getItem("chosenCharacter");
+var characterName = localStorage.getItem("chosenCharacter");
 var userName = localStorage.getItem("chosenUsername");
+
+localStorage.setItem("levelNumber", "1");
+
 // movement
 var cursors;
 var playerSpeed;
 // BonusTime in seconds
-var timeLeft = 120; 
+var timeLeft = 180;
 var timerText;
 var timeBonus;
 
@@ -23,9 +26,10 @@ var decreaseHealth;
 
 // clear stored level number on page reload
 window.onbeforeunload = function () {
-  localStorage.removeItem("levelNumber")
+  localStorage.removeItem("levelNumber");
 };
-
+let dead=false;
+let isGameOver = false;
 const dragons = [];
 
 //player info
@@ -46,7 +50,7 @@ var config = {
       debug: false,
     },
   },
-  scene: [FirstLevel, SecondLevel, ThirdLevel,FinishScreen],
+  scene: [FirstLevel, SecondLevel, ThirdLevel, FinishScreen, DeathScene],
 };
 
 if (characterName == "knight") {
@@ -75,17 +79,17 @@ function createPlayer() {
   this.player.health = playerHealth;
   this.player.setScale(0.5);
   // the size in phaser for collision
-  this.player.body.setSize(15, 5);
+  this.player.body.setSize(15, 10);
   this.player.body.setOffset(
-    this.player.width / 2 - 10,
-    this.player.height / 2 + 15
+    this.player.width / 2 - 20,
+    this.player.height / 2 + 10
   );
 }
 
 function updatePlayer() {
   playername.x = this.player.body.x + 5 - playername.width / 2;
   playername.y = this.player.body.y - 40;
-  if (!attacked) {
+  if (!attacked&&!dead) {
     if (cursors.left.isDown) {
       this.player.setVelocityX(-playerSpeed);
       this.player.setFlipX(true);
@@ -114,24 +118,21 @@ function updatePlayer() {
     }
     if (this.player.x > 670 && this.player.y < 450 && this.player.y > 375) {
       currentLevel++;
-    if (currentLevel==2){
-      this.scene.start("SecondLevel");
-      localStorage.setItem("levelNumber","2")
+      if (currentLevel == 2) {
+        this.scene.start("SecondLevel");
+        localStorage.setItem("levelNumber", "2");
+      } else if (currentLevel == 3) {
+        this.scene.start("ThirdLevel");
+        localStorage.setItem("levelNumber", "3");
+      }
+      // finished
+      else if (currentLevel == 4) {
+        localStorage.setItem("levelNumber", "4");
+        updateScore();
+        this.scene.start("FinishScreen");
+      }
     }
-    else if (currentLevel==3){
-      this.scene.start("ThirdLevel");
-      localStorage.setItem("levelNumber","3")
-
-    }
-    // finished
-    else if (currentLevel==4){
-      localStorage.setItem("levelNumber","4")
-      updateScore()
-      this.scene.start("FinishScreen");
-
-    }
-    }
-    decreaseHealth=false;
+    decreaseHealth = false;
   }
 }
 
@@ -157,19 +158,19 @@ function preloadAssets() {
     "/Game/Assets/dragon/dragon.png",
     "/Game/Assets/dragon/dragon.json"
   );
-  this.load.image('gate',"/Game/Assets/gate.svg")
+  this.load.image("gate", "/Game/Assets/gate.svg");
   // for now fake maze
- this.load.tilemapTiledJSON("mapLevel1", "/Game/Assets/mazes/mapLevel1.JSON")
+  this.load.tilemapTiledJSON("mapLevel1", "/Game/Assets/mazes/mapLevel1.JSON");
 
- this.load.image("TXTilesetGrass", "/Game/Assets/TileSets/TXTilesetGrass.png");
- this.load.image("Wall-Dirt", "/Game/Assets/TileSets/Wall-Dirt.png");
- this.load.image("TXPlant", "/Game/Assets/TileSets/TXPlant.png");
- this.load.image("key_big", "/Game/Assets/TileSets/key_big.png");
- this.load.image("GoldenIngot", "/Game/Assets/TileSets/GoldenIngot.png");
+  this.load.image("TXTilesetGrass", "/Game/Assets/TileSets/TXTilesetGrass.png");
+  this.load.image("Wall-Dirt", "/Game/Assets/TileSets/Wall-Dirt.png");
+  this.load.image("TXPlant", "/Game/Assets/TileSets/TXPlant.png");
+  this.load.image("key_big", "/Game/Assets/TileSets/key_big.png");
+  this.load.image("GoldenIngot", "/Game/Assets/TileSets/GoldenIngot.png");
 
- this.load.image('mapFinish',"/Game/Assets/maps/finishScreen.svg");
-
-
+  
+  this.load.image("deathScene", "/Game/Assets/maps/deathScene.svg");
+  this.load.image("mapFinish", "/Game/Assets/maps/finishScreen.svg");
 }
 
 function createAnimations(scene, characterName) {

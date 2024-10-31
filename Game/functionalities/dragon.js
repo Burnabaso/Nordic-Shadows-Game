@@ -78,7 +78,9 @@ class Dragon {
   //player logic
       attacked = true;
       player.setVelocity(0, 0);
+      if(playerHealth>=25){
       player.anims.play("hurt", true);
+      }
       this.scene.time.delayedCall(500, () => {
         attacked = false;
         decreaseHealth=true;
