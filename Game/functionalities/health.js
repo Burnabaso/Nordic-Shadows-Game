@@ -22,6 +22,7 @@ function updateHealth(scene,player){
             playerHealth = playerHealth - 25;
     }
     if (playerHealth <= 25 && !isGameOver && attacked) {
+       
         dead=true;
         isGameOver = true;
         scene.input.keyboard.enabled = false;
@@ -33,6 +34,9 @@ function updateHealth(scene,player){
             scene.physics.pause();
             scene.scene.start("DeathScene");
         });
+    }
+    if(playerHealth<=0){
+        playerHealth=0;
     }
     HealthText.setText(`Health:  ${playerHealth}`);
 

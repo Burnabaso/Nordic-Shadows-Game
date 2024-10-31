@@ -86,11 +86,11 @@ class FirstLevel extends Phaser.Scene {
         dragons.push(new Dragon(this, 230, 280, [
             { x: 230, y: 280 },
             { x: 230, y: 500 }
-        ], 140));
+        ], 80));
         dragons.push(new Dragon(this, 350, 550, [
             { x: 350, y: 550 },
             { x: 350, y: 450 }
-        ], 80));
+        ], 140));
     
         createAnimations(this, characterName);
     
