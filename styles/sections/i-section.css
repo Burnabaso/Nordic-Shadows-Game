@@ -216,7 +216,7 @@ nav{
 }
 
 .separator{
-    background-image: url('/assets/setup-page/btn-bg.jpg');
+    background-image: url('/game/assets/setup-page/btn-bg.jpg');
     background-repeat: repeat;
     background-size: cover;
     width: 100%;
