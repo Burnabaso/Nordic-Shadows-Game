@@ -6,12 +6,52 @@ class ThirdLevel extends Phaser.Scene {
 
     preload() {
         preloadAssets.call(this);
+        this.load.tilemapTiledJSON("mapLevel3", "/Game/Assets/mazes/mapLevel3.JSON")
+
+         this.load.image("Floor-Stone", "/Game/Assets/TileSets/Floor-Stone.png");
+         this.load.image("Wall-Glass", "/Game/Assets/TileSets/Wall-Glass.png");
+         this.load.image("TXProps", "/Game/Assets/TileSets/TXProps.png");
+         this.load.image("key_big", "/Game/Assets/TileSets/key_big.png");
+         this.load.image("GoldenIngot", "/Game/Assets/TileSets/GoldenIngot.png");
     }
 
     create() {
         this.collectedKeys = 0;
-        let map=this.add.image(350, 400, 'mapLevel3');
-        map.setScale(this.cameras.main.width / map.width);
+        
+        const map = this.make.tilemap({ key: "mapLevel3" });
+    
+        const grassTileset = map.addTilesetImage("Floor-Stone", "Floor-Stone");
+        const wallTileset = map.addTilesetImage("Wall-Glass", "Wall-Glass");
+        const plantTileset = map.addTilesetImage("TXProps", "TXProps");
+        const keyTileset = map.addTilesetImage("key_big", "key_big.png");
+        const ingotTileset = map.addTilesetImage("GoldenIngot", "GoldenIngot");
+
+        const scale = 0.73;
+
+
+        const mazeFloor = map.createLayer("mazeFloor", [grassTileset], 0, 0).setScale(scale);
+        const mazeWalls = map.createLayer("mazeWalls", [wallTileset], 0, 0).setScale(scale);
+        const mazeDecorations = map.createLayer("mazeDecorations", [plantTileset], 0, 0).setScale(scale);
+        
+        const gemLayer = map.getObjectLayer("mazeCoins");
+        const keyLayer = map.getObjectLayer("mazeKeys");
+
+        if (keyLayer) {
+            keyLayer.objects.forEach(key => {
+                const keySprite = this.physics.add.sprite(key.x * scale, key.y * scale, "key_big");
+                keySprite.setOrigin(0, 1).setScale(scale); 
+            });
+        }
+    
+        if (gemLayer) {
+            gemLayer.objects.forEach(gem => {
+                const gemSprite = this.physics.add.sprite(gem.x * scale, gem.y * scale, "GoldenIngot");
+                gemSprite.setOrigin(0, 1).setScale(scale); 
+            });
+        }
+
+        mazeWalls.setCollisionByExclusion([-1]);
+
         let gate=this.physics.add.staticImage(690, 400, 'gate');
         gate.setSize(65,100);
         gate.setScale(0.18);
@@ -40,6 +80,10 @@ class ThirdLevel extends Phaser.Scene {
             { x: 605, y: 410 },
             { x: 605, y: 640 }
         ], 40));
+
+        createAnimations(this, characterName);
+
+        this.physics.add.collider(this.player, mazeWalls);
         
         cursors = this.input.keyboard.createCursorKeys();
         handleCountdown(this);
