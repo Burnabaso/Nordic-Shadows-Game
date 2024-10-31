@@ -42,7 +42,7 @@ var characterName = localStorage.getItem("chosenCharacter");
 var config = {
   type: Phaser.AUTO,
   width: 700,
-  height: 750,
+  height: 700,
   physics: {
     default: "arcade",
     arcade: {
