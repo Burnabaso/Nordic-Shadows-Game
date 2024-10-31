@@ -115,7 +115,7 @@ function updatePlayer() {
     if (this.player.x > 670 && this.player.y < 450 && this.player.y > 375) {
       currentLevel++;
     if (currentLevel==2){
-      this.scene.start("SecondLevel");
+      this.scene.start("ThirdLevel");
       localStorage.setItem("levelNumber","2")
     }
     else if (currentLevel==3){
@@ -159,16 +159,8 @@ function preloadAssets() {
   );
   this.load.image('gate',"/Game/Assets/gate.svg")
   // for now fake maze
- this.load.tilemapTiledJSON("mapLevel1", "/Game/Assets/mazes/mapLevel1.JSON")
-
- this.load.image("TXTilesetGrass", "/Game/Assets/TileSets/TXTilesetGrass.png");
- this.load.image("Wall-Dirt", "/Game/Assets/TileSets/Wall-Dirt.png");
- this.load.image("TXPlant", "/Game/Assets/TileSets/TXPlant.png");
- this.load.image("key_big", "/Game/Assets/TileSets/key_big.png");
- this.load.image("GoldenIngot", "/Game/Assets/TileSets/GoldenIngot.png");
 
  this.load.image('mapFinish',"/Game/Assets/maps/finishScreen.svg");
-
 
 }
 

@@ -6,13 +6,20 @@ class FirstLevel extends Phaser.Scene {
 
     preload() {
         preloadAssets.call(this);
+        this.load.tilemapTiledJSON("mapLevel1", "/Game/Assets/mazes/mapLevel1.JSON")
+
+         this.load.image("TXTilesetGrass", "/Game/Assets/TileSets/TXTilesetGrass.png");
+         this.load.image("Wall-Dirt", "/Game/Assets/TileSets/Wall-Dirt.png");
+         this.load.image("TXPlant", "/Game/Assets/TileSets/TXPlant.png");
+         this.load.image("key_big", "/Game/Assets/TileSets/key_big.png");
+         this.load.image("GoldenIngot", "/Game/Assets/TileSets/GoldenIngot.png");
     }
 
     create() {
         this.collectedKeys = 0;
 
         const map = this.make.tilemap({ key: "mapLevel1" });
-
+    
         const grassTileset = map.addTilesetImage("TXTilesetGrass", "TXTilesetGrass");
         const wallTileset = map.addTilesetImage("Wall-Dirt", "Wall-Dirt");
         const plantTileset = map.addTilesetImage("TXPlant", "TXPlant");
@@ -50,11 +57,8 @@ class FirstLevel extends Phaser.Scene {
         gate.setScale(0.18);
         this.gate=gate;
 
-        
-
-
         createPlayer.call(this);
-        this.physics.add.collider(this.player, gate);
+
         //dragon creation
         dragons.push(new Dragon(this, 400, 400, [
             { x: 500, y: 400 },
