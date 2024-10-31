@@ -80,24 +80,27 @@ class SecondLevel extends Phaser.Scene {
     
         // Dragon creation
         dragons.length = 0;
-        dragons.push(new Dragon(this, 430, 50, [
-            { x: 430, y: 50 },
+        dragons.push(new Dragon(this, 500, 50, [
+            { x: 500, y: 50 },
             { x: 630, y: 50 }
         ], 120));
 
-        dragons.push(new Dragon(this, 500, 140, [
-            { x: 500, y: 140 },
-            { x: 630, y: 140 }
-        ], 120));
+        dragons.push(new Dragon(this, 60, 370, [
+            { x: 55, y: 370 },
+            { x: 150, y: 370 }
+        ], 80));
         dragons.push(new Dragon(this, 230, 230, [
             { x: 230, y: 230 },
             { x: 230, y: 450 }
-        ], 80));
-        dragons.push(new Dragon(this, 350, 500, [
-            { x: 350, y: 500 },
-            { x: 350, y: 400 }
-        ], 140));
-    
+        ], 120));
+        dragons.push(new Dragon(this, 120, 110, [
+            { x: 120, y: 110 },
+            { x:120, y: 250 }
+        ], 66));
+        dragons.push(new Dragon(this, 260, 50, [
+            { x: 260, y: 50 },
+            { x: 450, y: 50 }
+        ], 120));
         cursors = this.input.keyboard.createCursorKeys();
         handleCountdown(this);
         handleScore(this);
