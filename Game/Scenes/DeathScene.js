@@ -8,8 +8,7 @@ class DeathScene extends Phaser.Scene {
     }
 
     create() {
-        // TODO: replace with designed image
-        let map=this.add.image(350, 400, 'deathScene');
+        let map=this.add.image(350, 350, 'deathScene');
 
        
         createPlayer.call(this);

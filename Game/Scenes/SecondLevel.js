@@ -9,7 +9,6 @@ class SecondLevel extends Phaser.Scene {
 
     preload() {
         this.load.tilemapTiledJSON("mapLevel2", "/Game/Assets/mazes/mapLevel2.JSON")
-
         this.load.image("Floor-Grass", "/Game/Assets/TileSets/Floor-Grass.png");
         this.load.image("Floor-Sand", "/Game/Assets/TileSets/Floor-Sand.png");
         this.load.image("TXProps", "/Game/Assets/TileSets/TXProps.png");
@@ -81,10 +80,23 @@ class SecondLevel extends Phaser.Scene {
     
         // Dragon creation
         dragons.length = 0;
-        dragons.push(new Dragon(this, 400, 400, [
-            { x: 500, y: 400 },
-            { x: 400, y: 400 }
+        dragons.push(new Dragon(this, 430, 50, [
+            { x: 430, y: 50 },
+            { x: 630, y: 50 }
         ], 120));
+
+        dragons.push(new Dragon(this, 500, 140, [
+            { x: 500, y: 140 },
+            { x: 630, y: 140 }
+        ], 120));
+        dragons.push(new Dragon(this, 230, 230, [
+            { x: 230, y: 230 },
+            { x: 230, y: 450 }
+        ], 80));
+        dragons.push(new Dragon(this, 350, 500, [
+            { x: 350, y: 500 },
+            { x: 350, y: 400 }
+        ], 140));
     
         cursors = this.input.keyboard.createCursorKeys();
         handleCountdown(this);

@@ -116,7 +116,7 @@ function updatePlayer() {
     ) {
       this.player.anims.play("idle", true);
     }
-    if (this.player.x > 670 && this.player.y < 450 && this.player.y > 375) {
+    if (this.player.x > 670 && this.player.y < 500 && this.player.y > 350) {
       currentLevel++;
       if (currentLevel == 2) {
         this.scene.start("SecondLevel");

@@ -71,7 +71,7 @@ class FirstLevel extends Phaser.Scene {
             });
         }
     
-        mazeWalls.setCollisionByExclusion([-1]);
+        // mazeWalls.setCollisionByExclusion([-1]);
 
         let gate = this.physics.add.staticImage(690, 350, 'gate');
         gate.setSize(65, 100);
@@ -100,7 +100,7 @@ class FirstLevel extends Phaser.Scene {
     
         createAnimations(this, characterName);
     
-        this.physics.add.collider(this.player, mazeWalls);
+        // this.physics.add.collider(this.player, mazeWalls);
 
         cursors = this.input.keyboard.createCursorKeys();
         handleCountdown(this);
