@@ -74,10 +74,23 @@ class FirstLevel extends Phaser.Scene {
 
         this.physics.add.collider(this.player, gate);
 
-        dragons.push(new Dragon(this, 400, 400, [
-            { x: 500, y: 400 },
-            { x: 400, y: 400 }
+        dragons.push(new Dragon(this, 430, 105, [
+            { x: 430, y: 100 },
+            { x: 630, y: 100 }
         ], 120));
+
+        dragons.push(new Dragon(this, 500, 190, [
+            { x: 500, y: 190 },
+            { x: 630, y: 190 }
+        ], 120));
+        dragons.push(new Dragon(this, 230, 280, [
+            { x: 230, y: 280 },
+            { x: 230, y: 500 }
+        ], 140));
+        dragons.push(new Dragon(this, 350, 550, [
+            { x: 350, y: 550 },
+            { x: 350, y: 450 }
+        ], 80));
     
         createAnimations(this, characterName);
     
